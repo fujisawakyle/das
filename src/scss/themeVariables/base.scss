@@ -23,15 +23,25 @@ $tertiary: $green;
 
 // Assignments
 
-$h1Foreground: $secondary;
-$h2Foreground: $secondary;
-$h3Foreground: $primary;
+$h1Color: $primary;
+$h2Color: $secondary;
+$h3Color: $primary;
+$h4Color: $primary;
+$h5Color: $primary;
+$pColor: $secondary;
+$aColor: $primary;
+$buttonColor: $primary;
+
+$h1Background: $tertiary;
+$h2Background: $tertiary;
 $h3Background: $tertiary;
+$h4Background: $tertiary;
+$h5Background: $tertiary;
+$pBackground: $tertiary;
+$aBackground: $tertiary;
+$aHoverBackground: $tertiary;
 $buttonBackground: $secondary;
 $buttonHoverBackground: $tertiary;
-$buttonForeground: $primary;
-$buttonHoverBackground: $tertiary;
-$paragraphColor: $secondary;
 
 ////
 // Fonts
@@ -41,14 +51,13 @@ $primaryFont: "source-sans-pro, sans-serif";
 $secondaryFont: "open-sans-pro";
 
 $h1Font: $primaryFont;
-$h2Font: $secondaryFont;
-$h3Font: $secondaryFont;
+$h2Font: $primaryFont;
+$h3Font: $primaryFont;
 $h4Font: $primaryFont;
-$h5Font: $secondaryFont;
-$pFont: $secondaryFont;
-$linkFont: $secondaryFont;
-$footnoteFont: $secondaryFont;
-$quoteFont: $secondaryFont;
+$h5Font: $primaryFont;
+$aFont: $primaryFont;
+$pFont: $primaryFont;
+$buttonFont: $primaryFont;
 
 ////
 // Sizes
@@ -74,12 +83,10 @@ $h5FontSizeMobile: $xSmallFont;
 $h5FontSizeDesktop: $xSmallFont;
 $pFontSizeMobile: $smallerFont;
 $pFontSizeDesktop: $smallerFont;
+$aFontSizeMobile: $smallerFont;
+$aFontSizeDesktop: $smallFont;
 $buttonFontSizeMobile: $smallerFont;
 $buttonFontSizeDesktop: $smallerFont;
-$footnoteFontSizeMobile: $xXSmallFont;
-$footnoteFontSizeDesktop: $xXSmallFont;
-$quoteFontSizeMobile: $largeFont;
-$quoteFontSizeDesktop: $largeFont;
 
 ////
 // Weights
@@ -88,7 +95,10 @@ $quoteFontSizeDesktop: $largeFont;
 $h1Weight: "600";
 $h2Weight: "600";
 $h3Weight: "300";
+$h4Weight: "300";
+$h5Weight: "300";
 $pWeight: "300";
+$aWeight: "500";
 $buttonWeight: "500";
 
 $sectionPaddingY: 1em;
