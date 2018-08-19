@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Link from "gatsby-link";
 
-import StyledHeader from "../styles/styledComponents/blocks/styledHeader";
+import { StyledHeader } from "../styles/styledComponents/blocks";
 import BurgerMenu from "../components/BurgerMenu";
 
 export default class Header extends Component {
