@@ -1,0 +1,65 @@
+extends: airbnb
+globals:
+  describe: true
+  it: true
+  before: true
+rules:
+  object-curly-newline:
+    - error
+    - ObjectPattern:
+        multiline: true
+  arrow-body-style:
+    - error
+    - as-needed
+  no-use-before-define:
+    - 2
+    - functions: false
+      classes: true
+      variables: false
+  dot-location:
+    - 2
+    - object
+  indent:
+    - 1
+    - 2
+    - MemberExpression: off # allows alignment of method calls at different lines.
+  key-spacing:
+    - 2
+    - mode: minimum # allows more than one space for alignment across different lines.
+  no-multi-spaces:
+    - error
+    - exceptions:
+        VariableDeclarator: true
+        Property: true
+        CallExpression: true
+  no-restricted-syntax:
+    - 0
+  quotes:
+    - warn
+    - double
+  space-before-function-paren:
+    - error
+    - never
+  no-underscore-dangle:
+    - error
+    - allow:
+      - "_getJSON"
+  react/jsx-filename-extension:
+    - warn
+    - extensions:
+      - .js
+      - .jsx
+  react/sort-comp:
+    - warn
+    - order:
+      - lifecycle
+      - render
+      - static-methods
+      - /^render.+$/
+      - /^handle.+$/
+      - everything-else
+  react/destructuring-assignment:
+    - never
+  operator-linebreak:
+    - warn
+    - after

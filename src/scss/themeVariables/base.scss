@@ -1,0 +1,99 @@
+////
+//
+// BASE THEME
+//
+////
+
+////
+// Colors
+////
+
+// Definitions
+
+$white: "#fff";
+$black: "#000";
+$green: "#1cb841";
+$transparentBlack: rgba(0, 0, 0, 0.7);
+
+// Categorizations
+
+$primary: $white;
+$secondary: $black;
+$tertiary: $green;
+
+// Assignments
+
+$h1Foreground: $secondary;
+$h2Foreground: $secondary;
+$h3Foreground: $primary;
+$h3Background: $tertiary;
+$buttonBackground: $secondary;
+$buttonHoverBackground: $tertiary;
+$buttonForeground: $primary;
+$buttonHoverBackground: $tertiary;
+$paragraphColor: $secondary;
+
+////
+// Fonts
+////
+
+$primaryFont: "source-sans-pro, sans-serif";
+$secondaryFont: "open-sans-pro";
+
+$h1Font: $primaryFont;
+$h2Font: $secondaryFont;
+$h3Font: $secondaryFont;
+$h4Font: $primaryFont;
+$h5Font: $secondaryFont;
+$pFont: $secondaryFont;
+$linkFont: $secondaryFont;
+$footnoteFont: $secondaryFont;
+$quoteFont: $secondaryFont;
+
+////
+// Sizes
+////
+
+$xLargeFont: 3rem;
+$largeFont: 2.5rem;
+$mediumFont: 2rem;
+$smallFont: 1.5rem;
+$smallerFont: 1.25rem;
+$xSmallFont: 1rem;
+$xXSmallFont: .75rem;
+
+$h1FontSizeMobile: $mediumFont;
+$h1FontSizeDesktop: $xLargeFont;
+$h2FontSizeMobile: $smallerFont;
+$h2FontSizeDesktop: $smallFont;
+$h3FontSizeMobile: $smallFont;
+$h3FontSizeDesktop: $mediumFont;
+$h4FontSizeMobile: $largeFont;
+$h4FontSizeDesktop: $largeFont;
+$h5FontSizeMobile: $xSmallFont;
+$h5FontSizeDesktop: $xSmallFont;
+$pFontSizeMobile: $smallerFont;
+$pFontSizeDesktop: $smallerFont;
+$buttonFontSizeMobile: $smallerFont;
+$buttonFontSizeDesktop: $smallerFont;
+$footnoteFontSizeMobile: $xXSmallFont;
+$footnoteFontSizeDesktop: $xXSmallFont;
+$quoteFontSizeMobile: $largeFont;
+$quoteFontSizeDesktop: $largeFont;
+
+////
+// Weights
+////
+
+$h1Weight: "800";
+$h2Weight: "700";
+$h3Weight: "900";
+$h4Weight: "800";
+
+$sectionPaddingY: 1em;
+$sectionPaddingX: 1em;
+$contentWidth: 65%;
+$contentMax: 50em;
+$logoListMax: 25em;
+$contentMaxConstained: 31em;
+$lineHeight: 1.5;

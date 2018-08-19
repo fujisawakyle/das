@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: static/assets
+public_folder: assets
+
+collections:
+  - name: info
+    label: HOW TO CHANGE THIS SITE
+    files:
+      - name: doc
+        label: Help Doc
+        file: static/help.json
+        fields:
+          - name: link
+            label: Link
+
+  - name: header
+    label: Header/Nav
+    folder: src/data/header
+    extension: json
+    fields:
+      - name: title
+        label: Header/Nav
+      - name: links
+        label: Links
+        widget: list
+        fields:
+          - name: linkText
+            label: Link Text
+          - name: path
+            label: Path  

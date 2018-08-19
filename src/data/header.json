@@ -1,0 +1,17 @@
+{
+  "title": "Nav",
+  "links": [
+    {
+      "linkText": "One",
+      "path": "one"
+    },
+    {
+      "linkText": "Two",
+      "path": "two"
+    },
+    {
+      "linkText": "Three",
+      "path": "three"
+    }
+  ]
+}
