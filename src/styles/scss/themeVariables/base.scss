@@ -1,0 +1,24 @@
+////
+//
+// BASE THEME
+//
+////
+
+////
+// Colors
+////
+
+// Definitions
+
+$white: "#fff";
+$black: "#000";
+$green: "#1cb841";
+$transparentBlack: rgba(0, 0, 0, 0.7);
+
+// Categorizations
+
+$primary: $black; //foreground
+$secondary: $white; //background
+$tertiary: $green;
+
+@import 'common';

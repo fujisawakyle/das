@@ -1,34 +1,11 @@
-////
-//
-// BASE THEME
-//
-////
-
-////
-// Colors
-////
-
-// Definitions
-
-$white: "#fff";
-$black: "#000";
-$green: "#1cb841";
-$transparentBlack: rgba(0, 0, 0, 0.7);
-
-// Categorizations
-
-$primary: $white;
-$secondary: $black;
-$tertiary: $green;
-
 // Assignments
 
 $h1Color: $primary;
-$h2Color: $secondary;
+$h2Color: $primary;
 $h3Color: $primary;
 $h4Color: $primary;
 $h5Color: $primary;
-$pColor: $secondary;
+$pColor: $primary;
 $aColor: $primary;
 $buttonColor: $primary;
 
@@ -58,6 +35,15 @@ $h5Font: $primaryFont;
 $aFont: $primaryFont;
 $pFont: $primaryFont;
 $buttonFont: $primaryFont;
+
+$h1Color: $primary;
+$h2Color: $primary;
+$h3Color: $primary;
+$h4Color: $primary;
+$h5Color: $primary;
+$pColor: $primary;
+$aColor: $primary;
+$buttonColor: $primary;
 
 ////
 // Sizes

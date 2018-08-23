@@ -1,3 +1,33 @@
+/*
+//Things to do
+
+Footer
+Elements
+  Buttons
+  Headers
+  Paragraphs
+  Links
+Blocks
+  Sections
+    Layouts 
+      3 Column
+      2 Column
+        img with text to side
+      img with text over
+      text with no img
+    Standard image types
+  Row
+  Column
+  Dynamic Row/Column (Desktop or Mobile)
+    RowToCol
+    ColToRow
+Forms
+Modals
+
+Other dependency things
+look into .babelrc
+
+*/
 import React from "react";
 import Helmet from "react-helmet";
 import Themed from "../helpers/Themed";
