@@ -23,6 +23,9 @@
   },
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
     "node-sass": "^4.9.3",
     "sass-extract": "^2.1.0",
     "sass-extract-js": "^0.4.0",

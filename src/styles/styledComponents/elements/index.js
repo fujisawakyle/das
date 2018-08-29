@@ -73,6 +73,7 @@ export const A = styled.a`
   font-family: ${fromThemeProps("aFont")};
   font-size: ${fromThemeProps("aFontSizeMobile")};
   font-weight: ${fromThemeProps("aWeight")};
+  text-decoration: underline;
 
   ${media.xs`
     font-size: ${fromThemeProps("aFontSizeDesktop")};
@@ -80,10 +81,14 @@ export const A = styled.a`
 `;
 
 export const Button = styled(A)`
-  color: ${fromThemeProps("buttonColor")};
+  background: ${fromThemeProps("buttonBackground")};
+  padding: 0.5em 1em;
+
+  color: ${fromThemeProps("buttonForeground")};
   font-family: ${fromThemeProps("buttonFont")};
   font-size: ${fromThemeProps("buttonFontSizeMobile")};
   font-weight: ${fromThemeProps("buttonWeight")};
+  text-decoration: none;
 
   ${media.xs`
     font-size: ${fromThemeProps("buttonFontSizeDesktop")};

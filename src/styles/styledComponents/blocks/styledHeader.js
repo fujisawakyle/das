@@ -13,6 +13,10 @@ const StyledHeader = styled.div`
 
   background: ${fromThemeProps("transparentBlack")};
   transition: .4s linear;
+
+  &+ * {
+    padding-top: 5em;
+  }
 `
 
 StyledHeader.SVG = styled(ReactSVG)`
