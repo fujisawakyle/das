@@ -12,13 +12,14 @@
 
 $white: "#fff";
 $black: "#000";
-$green: "#1cb841";
+$red: "#bf2026";
+$hoverRed: rgb(158, 28, 32);
 $transparentBlack: rgba(0, 0, 0, 0.7);
 
 // Categorizations
 
 $primary: $black; //foreground
 $secondary: $white; //background
-$tertiary: $green;
+$tertiary: $red;
 
 @import 'common';

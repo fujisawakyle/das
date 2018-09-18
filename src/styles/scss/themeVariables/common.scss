@@ -8,6 +8,7 @@ $h5Color: $primary;
 $pColor: $primary;
 $aColor: $primary;
 $buttonForeground: $secondary;
+$fauxButtonBackground: $secondary;
 
 $h1Background: $tertiary;
 $h2Background: $tertiary;
@@ -17,8 +18,9 @@ $h5Background: $tertiary;
 $pBackground: $tertiary;
 $aBackground: $tertiary;
 $aHoverBackground: $tertiary;
-$buttonBackground: $primary;
-$buttonHoverBackground: $tertiary;
+$buttonBackground: $tertiary;
+$fauxButtonBackground: transparent;
+$buttonHoverBackground: $hoverRed;
 
 ////
 // Fonts
@@ -85,7 +87,7 @@ $h4Weight: "300";
 $h5Weight: "300";
 $pWeight: "300";
 $aWeight: "500";
-$buttonWeight: "500";
+$buttonWeight: "bold";
 
 $sectionPaddingY: 1em;
 $sectionPaddingX: 1em;

@@ -81,18 +81,47 @@ export const A = styled.a`
 `;
 
 export const Button = styled(A)`
+  border: none;
+  border-radius: 1em;
   background: ${fromThemeProps("buttonBackground")};
-  padding: 0.5em 1em;
+  padding: 0.4em 0.9em 0.2em;
 
   color: ${fromThemeProps("buttonForeground")};
   font-family: ${fromThemeProps("buttonFont")};
-  font-size: ${fromThemeProps("buttonFontSizeMobile")};
+  font-size: 1.2rem;
   font-weight: ${fromThemeProps("buttonWeight")};
   text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.05s ease;
 
-  ${media.xs`
+  cursor: pointer;
+
+  ${media.sm`
     font-size: ${fromThemeProps("buttonFontSizeDesktop")};
   `}
+
+  &:hover {
+    background: ${fromThemeProps("buttonHoverBackground")};
+  }
+`
+
+export const FauxButton = styled.div`
+  border: 3px solid #fff;
+  border-radius: 1em;
+  background: ${fromThemeProps("fauxButtonBackground")};
+  padding: 0.4em 0.9em 0.2em;
+
+  color: ${fromThemeProps("fauxButtonForeground")};
+  font-family: ${fromThemeProps("buttonFont")};
+  font-size: 1.2rem;
+  font-weight: ${fromThemeProps("buttonWeight")};
+  text-decoration: none;
+  text-transform: uppercase;
+  
+  ${media.sm`
+    font-size: ${fromThemeProps("buttonFontSizeDesktop")};
+  `}
+
 `
 
 export const Ol = styled.ol``;

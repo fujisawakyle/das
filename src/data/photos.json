@@ -1,0 +1,50 @@
+[
+  {
+    "title": "cat1",
+    "artist": "artist1",
+    "location": "location1",
+    "url": "https://placehold.it/300/300",
+    "votes": 1,
+    "votedFor": false
+  },
+  {
+    "title": "cat2",
+    "artist": "artist2",
+    "location": "location2",
+    "url": "https://placehold.it/301/301",
+    "votes": 2,
+    "votedFor": false
+  },
+  {
+    "title": "cat3",
+    "artist": "artist3",
+    "location": "location3",
+    "url": "https://placehold.it/302/302",
+    "votes": 3,
+    "votedFor": false
+  },
+  {
+    "title": "cat4",
+    "artist": "artist4",
+    "location": "location4",
+    "url": "https://placehold.it/303/303",
+    "votes": 4,
+    "votedFor": false
+  },
+  {
+    "title": "cat5",
+    "artist": "artist5",
+    "location": "location5",
+    "url": "https://placehold.it/304/304",
+    "votes": 5,
+    "votedFor": false
+  },
+  {
+    "title": "cat6",
+    "artist": "artist6",
+    "location": "location6",
+    "url": "https://placehold.it/305/305",
+    "votes": 6,
+    "votedFor": false
+  }
+]
