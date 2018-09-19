@@ -6,6 +6,7 @@ const StyledRow = styled.div`
   ${flex({ jc: "center", ai: "center" })};
   width: 100%;
   max-width: 45em; 
+  background: ${props => props.background};
 `
 
 export default StyledRow;

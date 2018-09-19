@@ -1,83 +1,53 @@
-/*
-//Things to do
-
-Footer
-Elements
-  Buttons
-  Headers
-  Paragraphs
-  Links
-Blocks
-  Sections
-    Layouts 
-      3 Column
-      2 Column
-        img with text to side
-      img with text over
-      text with no img
-    Standard image types
-  Row
-  Column
-  Dynamic Row/Column (Desktop or Mobile)
-    RowToCol
-    ColToRow
-Forms
-Modals
-
-Other dependency things
-look into .babelrc
-
-*/
 import React from "react";
 import Helmet from "react-helmet";
 import Themed from "../helpers/Themed";
-import Header from "../components/Header";
+// import Header from "../components/Header";
 import "../styles/reset.css";
 
 const Layout = ({ children }) => (
   <Themed>
     <div>
       <Helmet
-        title="The Humane League"
+        title="Digital Art Show"
         meta={[
           {
             name: 'description',
             content:
-              "Site description"
+              "A digital art show for chickens"
           },
           {
             name: 'keywords',
             content: 'animal welfare'
           },
           { name: 'twitter:card', content: 'photo' },
-          { name: 'twitter:url', content: 'https://www.site.com' },
-          { name: 'twitter:title', content: "The Humane League" },
-          { name: 'twitter:description', content: "Site description" },
+          { name: 'twitter:url', content: 'https://www.digitalartshow.com' },
+          { name: 'twitter:title', content: "I'm Not Lovin It Art Show" },
+          { name: 'twitter:description', content: "A digital art show for chickens" },
           {
             name: 'twitter:image',
             content:
-              'https://s3.amazonaws.com/the-humane-league-campaigns/sites/oneinabillion/images/campaigns-broiler-uk-OinaB-share-image.png'
+              'https://s3.amazonaws.com/the-humane-league-campaigns/mcdonalds/images/campaigns-mcdonalds-OG-share-image-artshow.jpg'
           },
-          { property: 'og:title', content: "The Humane League" },
+          { property: 'og:title', content: "I'm Not Lovin It Art Show" },
           ,
           { property: 'og:type', content: 'website' },
           ,
           {
             property: 'og:description',
             content:
-              "Site description"
+              "A digital art show for chickens"
           },
           ,
-          { property: 'og:url', content: 'https://www.site.com' },
+          { property: 'og:url', content: 'https://www.digitalartshow.com' },
           ,
           {
             property: 'og:image',
             content:
-              'https://s3.amazonaws.com/campaign/sites/site-name/images/share-image.png'
+              'https://s3.amazonaws.com/the-humane-league-campaigns/mcdonalds/images/campaigns-mcdonalds-OG-share-image-artshow.jpg'
           }
         ]}>
       </Helmet>
-      <Header />
+      {/* <Header /> */}
       {children()}
     </div>
   </Themed>

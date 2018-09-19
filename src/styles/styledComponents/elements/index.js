@@ -8,6 +8,8 @@ export const H1 = styled.h1`
   font-family: ${fromThemeProps("h1Font")};
   font-size: ${fromThemeProps("h1FontSizeMobile")};
   font-weight: ${fromThemeProps("h1Weight")};
+  text-align: center;
+  text-transform: uppercase;
 
   ${media.xs`
     font-size: ${fromThemeProps("h1FontSizeDesktop")};
@@ -19,6 +21,7 @@ export const H2 = styled.h2`
   font-family: ${fromThemeProps("h2Font")};
   font-size: ${fromThemeProps("h2FontSizeMobile")};
   font-weight: ${fromThemeProps("h2Weight")};
+  text-transform: ${props => props.textTransform};
 
   ${media.xs`
     font-size: ${fromThemeProps("h2FontSizeDesktop")};
@@ -81,7 +84,7 @@ export const A = styled.a`
 `;
 
 export const Button = styled(A)`
-  border: none;
+  border: ${fromThemeProps("buttonBorder")};
   border-radius: 1em;
   background: ${fromThemeProps("buttonBackground")};
   padding: 0.4em 0.9em 0.2em;

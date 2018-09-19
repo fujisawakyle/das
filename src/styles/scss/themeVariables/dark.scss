@@ -4,3 +4,7 @@ $primary: $white; //foreground
 $secondary: $black; //background
 
 @import 'common';
+
+$buttonForeground: $primary;
+$buttonBorder: 3px solid #fff;
+$buttonBackground: transparent;

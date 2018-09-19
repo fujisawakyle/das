@@ -2,13 +2,14 @@ import React from 'react';
 
 import styled from "styled-components";
 import { fromThemeProps } from "../../../helpers/utilities";
-import Media from "../../../helpers/media";
+import media from "../../../helpers/media";
 
 const SectionContainer = styled.div`
   background: ${(props) => {
     if (props.background) { return props.background; }
     return props.theme.secondary;
   }};
+  margin-top: ${props => props.marginTop};
   ${(props) => props.backgroundImage && css`
     background: url(${props.backgroundImage});
     background-size: cover;
@@ -18,19 +19,21 @@ const SectionContainer = styled.div`
 
 const ContentContainer = styled.div`
   display: flex;
+  flex-direction: column;
   margin: auto;
   justify-content: ${props => props.jc || "center"};
   align-items: ${props => props.ai || "center"};
   padding-top: ${props => props.paddingTop || "0"};
   padding-bottom: ${props => props.paddingBottom || "0"};
-  width: ${props => props.width ||
+  max-width: ${props => props.maxWidth}
+  width: ${props => props.mobileWidth ||
     props.theme.mobileContentWidth};
   * {
     z-index: 3;
   }
 
-  ${Media.md`
-    width: ${props => props.width ||
+  ${media.md`
+    width: ${props => props.desktopWidth ||
       props.theme.contentWidth};
   `}
 `;
@@ -45,12 +48,20 @@ const Shade = styled.div`
 `;
 
 const StyledSection = (props) => {
-  const { backgroundImage, children, shaded, width } = props;
+  const { marginTop, background, backgroundImage, children, shaded, mobileWidth, desktopWidth, maxWidth } = props;
   const shade = shaded && <Shade />;
   return (
-    <SectionContainer backgroundImage={backgroundImage}>
+    <SectionContainer
+      background={background}
+      backgroundImage={backgroundImage}
+      marginTop={marginTop}
+    >
       {shade}
-      <ContentContainer width={width}>
+      <ContentContainer
+        mobileWidth={mobileWidth}
+        desktopWidth={desktopWidth}
+        maxWidth={maxWidth}
+      >
         {children}
       </ContentContainer>
     </SectionContainer>

@@ -3,9 +3,16 @@ import Modal from 'react-modal';
 import Media from 'react-media';
 import _ from 'lodash';
 import PhotoSlider from "../components/PhotoSlider";
+import TitleBar from "../components/TitleBar";
+import IntroText from "../components/IntroText";
+import CampaignInfo from "../components/CampaignInfo";
+import Footer from "../components/Footer";
+import Sponsor from "../components/Sponsor";
 import Photo, { Grid, GridPhotoContainer } from '../styles/styledComponents/elements/GridPhoto';
 import photoData from "../data/photos.json";
 import { Button } from "../styles/styledComponents/elements"
+import { StyledSection } from "../styles/styledComponents/blocks";
+import AboutTHLMarkup from "../components/ModalMarkup";
 
 const ModalStyles = {
   content: {
@@ -73,17 +80,41 @@ class App extends React.Component {
     )
     return (
       <div>
-        <Grid>
-          {images}
-        </Grid>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onRequestClose={this.closeModal}
-          style={ModalStyles}
-        >
-          <div style={{ width: '600px' }} />
-          <PhotoSlider voteFor={this.voteFor} photoDetails={photoDetails} photoSelected={this.state.photoSelected} />
-        </Modal>
+        <TitleBar />
+        <IntroText />
+        <StyledSection desktopWidth="90%" maxWidth="80em">
+
+
+          <Grid>
+            {images}
+          </Grid>
+          <Modal
+            isOpen={this.state.modalIsOpen}
+            onRequestClose={this.closeModal}
+            style={ModalStyles}
+          >
+            <div style={{ width: '600px' }} />
+            <PhotoSlider voteFor={this.voteFor} photoDetails={photoDetails} photoSelected={this.state.photoSelected} />
+          </Modal>
+          <br />
+          <Button>Contest Rules</Button>
+        </StyledSection>
+        <CampaignInfo />
+        <Sponsor />
+        <Footer
+          triggerItem={
+            <a
+              style={{
+                textDecoration: 'underline',
+                color: '#fff',
+                textTransform: 'uppercase'
+              }}
+            >
+              About The Humane League
+          </a>
+          }
+          markupToDisplay={AboutTHLMarkup}
+        />
       </div >
     );
   }
