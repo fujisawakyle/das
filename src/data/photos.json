@@ -5,7 +5,8 @@
     "location": "location1",
     "url": "https://placehold.it/300/300",
     "votes": 1,
-    "votedFor": false
+    "votedFor": true,
+    "id": 1
   },
   {
     "title": "cat2",
@@ -13,7 +14,8 @@
     "location": "location2",
     "url": "https://placehold.it/301/301",
     "votes": 2,
-    "votedFor": false
+    "votedFor": false,
+    "id": 2
   },
   {
     "title": "cat3",
@@ -21,7 +23,8 @@
     "location": "location3",
     "url": "https://placehold.it/302/302",
     "votes": 3,
-    "votedFor": false
+    "votedFor": false,
+    "id": 3
   },
   {
     "title": "cat4",
@@ -29,7 +32,8 @@
     "location": "location4",
     "url": "https://placehold.it/303/303",
     "votes": 4,
-    "votedFor": false
+    "votedFor": false,
+    "id": 4
   },
   {
     "title": "cat5",
@@ -37,7 +41,8 @@
     "location": "location5",
     "url": "https://placehold.it/304/304",
     "votes": 5,
-    "votedFor": false
+    "votedFor": false,
+    "id": 5
   },
   {
     "title": "cat6",
@@ -45,6 +50,7 @@
     "location": "location6",
     "url": "https://placehold.it/305/305",
     "votes": 6,
-    "votedFor": false
+    "votedFor": false,
+    "id": 6
   }
 ]

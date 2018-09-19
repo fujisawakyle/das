@@ -27,6 +27,7 @@ class App extends React.Component {
   state = {
     modalIsOpen: false,
     photoSelected: null,
+    votedFor: null,
   };
 
   componentWillMount() {
@@ -37,13 +38,30 @@ class App extends React.Component {
 
     images = (
       photoDetails.map((photo, i) => {
+        if (photo.id === this.state.votedFor) {
+          console.log(this.state.votedFor)
+          return (
+            <Media query="(max-width: 768px)">
+              {matches =>
+                matches ? (
+                  <GridPhotoContainer>
+                    <Photo votedFor={this.state.votedFor} votes={photo.votes} backgroundImage={photo.url} openModal={() => this.openModal(i)} />
+                    <Button onClick={() => this.voteFor(photo.id)}>vote</Button>
+                  </GridPhotoContainer>
+                ) : (
+                    <Photo votedFor={this.state.votedFor} votes={photo.votes} backgroundImage={photo.url} openModal={() => this.openModal(i)} />
+                  )
+              }
+            </Media>
+          )
+        }
         return (
           <Media query="(max-width: 768px)">
             {matches =>
               matches ? (
                 <GridPhotoContainer>
                   <Photo votes={photo.votes} backgroundImage={photo.url} openModal={() => this.openModal(i)} />
-                  <Button>vote</Button>
+                  <Button onClick={() => this.voteFor(photo.id)}>vote</Button>
                 </GridPhotoContainer>
               ) : (
                   <Photo votes={photo.votes} backgroundImage={photo.url} openModal={() => this.openModal(i)} />
@@ -64,19 +82,24 @@ class App extends React.Component {
           style={ModalStyles}
         >
           <div style={{ width: '600px' }} />
-          <PhotoSlider photoDetails={photoDetails} photoSelected={this.state.photoSelected} />
+          <PhotoSlider voteFor={this.voteFor} photoDetails={photoDetails} photoSelected={this.state.photoSelected} />
         </Modal>
       </div >
     );
   }
 
   // Helpers //
-  openModal = photoSelected => {
+  openModal = (photoSelected) => {
     this.setState({ modalIsOpen: true, photoSelected });
   }
 
   closeModal = () => {
     this.setState({ modalIsOpen: false });
+  }
+
+  voteFor = id => {
+    this.setState({ votedFor: id });
+
   }
 }
 

@@ -81,10 +81,9 @@ class Photo extends Component {
                         justifyContent: `center`,
                         alignItems: `center`,
                         color: `white`,
-                        textAlign: 'center'
+                        textAlign: 'center',
                       }}
                     >
-
                       <FauxButton>View</FauxButton>
                       <br />
                       {this.props.votes}
@@ -93,11 +92,40 @@ class Photo extends Component {
               }
             </Media>
 
+
+          )}
+          {(this.props.votedFor > -1) && !this.state.hovering && (
+            <div
+              style={{
+                position: `absolute`,
+                top: 0,
+                bottom: 0,
+                left: 0,
+                right: 0,
+                width: '300px',
+                height: '300px',
+                backgroundColor: `rgba(255,255,255,0.3)`,
+                display: `flex`,
+                flexDirection: 'column',
+                justifyContent: `center`,
+                alignItems: `center`,
+                color: `white`,
+                textAlign: 'center'
+              }}
+            >
+              <h1>Thanks for voting today!</h1>
+              <br />
+              <h1>🐔</h1>
+              <br />
+              <h1>Come back tomorrow to cast another vote.</h1>
+            </div>
           )}
         </GridPhoto>
       </div >
     )
   }
+
+
 }
 
 export default Photo;

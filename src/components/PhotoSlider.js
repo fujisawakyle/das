@@ -20,7 +20,7 @@ export default class PhotoSlider extends Component {
     orderedPhotos = (
       photoDetails.map(
         (photo, i) => {
-          return <PhotoSlide key={i} photo={photo} />
+          return <PhotoSlide voteFor={this.props.voteFor} key={i} photo={photo} />
         }
       )
     )

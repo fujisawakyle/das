@@ -22,7 +22,7 @@ export default class PhotoSlide extends Component {
             <h1>{photo.artist}</h1>
             <h1>{photo.location}</h1>
           </PhotoDetailsContainer>
-          <Button>vote</Button>
+          <Button onClick={() => { console.log(photo.id); this.props.voteFor(photo.id); }}>vote</Button>
         </div>
         <h3>{photo.votes}</h3>
       </div >
