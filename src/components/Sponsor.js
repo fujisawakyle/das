@@ -6,9 +6,8 @@ import herbivorousLogo from '../assets/png/herbivorous-butcher-black.png'
 
 const Sponsor = () => {
   return (
-    <StyledSection>
-
-      <H2 textTransform="uppercase">Sponsored by</H2>
+    <StyledSection paddingTop="3em" paddingBottom="3em">
+      <H2 marginBottom="1rem" textTransform="uppercase">Sponsored by</H2>
       <img style={{ width: '300px' }} src={herbivorousLogo} />
     </StyledSection>
 

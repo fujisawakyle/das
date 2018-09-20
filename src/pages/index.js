@@ -12,9 +12,13 @@ import Photo, { Grid, GridPhotoContainer } from '../styles/styledComponents/elem
 import photoData from "../data/photos.json";
 import { Button } from "../styles/styledComponents/elements"
 import { StyledSection } from "../styles/styledComponents/blocks";
-import AboutTHLMarkup from "../components/ModalMarkup";
+import { AboutTHLMarkup, ContestRulesMarkup } from "../components/ModalMarkup";
+import ModalTrigger from '../components/ModalTrigger';
 
 const ModalStyles = {
+  overlay: {
+    backgroundColor: 'rgba(0,0,0,0.6)',
+  },
   content: {
     top: '50%',
     left: '50%',
@@ -82,9 +86,7 @@ class App extends React.Component {
       <div>
         <TitleBar />
         <IntroText />
-        <StyledSection desktopWidth="90%" maxWidth="80em">
-
-
+        <StyledSection paddingBottom="5em" desktopWidth="90%" maxWidth="80em">
           <Grid>
             {images}
           </Grid>
@@ -97,7 +99,13 @@ class App extends React.Component {
             <PhotoSlider voteFor={this.voteFor} photoDetails={photoDetails} photoSelected={this.state.photoSelected} />
           </Modal>
           <br />
-          <Button>Contest Rules</Button>
+          <ModalTrigger
+            bgColor="#fff"
+            color="#222"
+            modalTransition="scaleUp"
+            triggerItem={<Button>Contest Rules</Button>}
+            markupToDisplay={ContestRulesMarkup}
+          />
         </StyledSection>
         <CampaignInfo />
         <Sponsor />

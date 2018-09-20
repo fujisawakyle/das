@@ -44,9 +44,10 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `source sans pro\:300,400,600` // you can also specify font weights and styles
+          `raleway\:400,700,900`,
+          `source sans pro\:300,400` // you can also specify font weights and styles
         ]
-      }
+      },
     },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-netlify-cms'

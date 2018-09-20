@@ -25,12 +25,9 @@ const ContentContainer = styled.div`
   align-items: ${props => props.ai || "center"};
   padding-top: ${props => props.paddingTop || "0"};
   padding-bottom: ${props => props.paddingBottom || "0"};
-  max-width: ${props => props.maxWidth}
-  width: ${props => props.mobileWidth ||
-    props.theme.mobileContentWidth};
-  * {
-    z-index: 3;
-  }
+  max-width: ${props => props.maxWidth};
+  width: ${props => props.mobileWidth || props.theme.mobileContentWidth};
+  
 
   ${media.md`
     width: ${props => props.desktopWidth ||
@@ -48,7 +45,7 @@ const Shade = styled.div`
 `;
 
 const StyledSection = (props) => {
-  const { marginTop, background, backgroundImage, children, shaded, mobileWidth, desktopWidth, maxWidth } = props;
+  const { paddingTop, paddingBottom, marginTop, background, backgroundImage, children, shaded, mobileWidth, desktopWidth, maxWidth } = props;
   const shade = shaded && <Shade />;
   return (
     <SectionContainer
@@ -61,6 +58,8 @@ const StyledSection = (props) => {
         mobileWidth={mobileWidth}
         desktopWidth={desktopWidth}
         maxWidth={maxWidth}
+        paddingBottom={paddingBottom}
+        paddingTop={paddingTop}
       >
         {children}
       </ContentContainer>

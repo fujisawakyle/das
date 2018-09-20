@@ -7,14 +7,14 @@ import Themed from '../helpers/Themed';
 
 const IntroText = () => {
   return (
-    <StyledSection background={fromThemeProps("altRed")}>
-      <P>
-        The art show is a part of the I’m Not Lovin’ It campaign, which highlights McDonald’s failure to address the practice of selectively-breeding chickens to grow unnaturally large at a rapid rate, approximately six times faster than chickens grow naturally. The campaign is asking McDonald's to implement higher, science-based animal welfare standards for its chicken supply chain by switching to healthier breeds of birds, providing more room for the chickens to move, monitoring air and litter quality, and providing environmental enrichments.
+    <Themed dark>
+      <StyledSection paddingTop="3em" paddingBottom="3em" mobileWidth={fromThemeProps("mobileWidth")} background={fromThemeProps("altRed")}>
+        <P>
+          The art show is a part of the I’m Not Lovin’ It campaign, which highlights McDonald’s failure to address the practice of selectively-breeding chickens to grow unnaturally large at a rapid rate, approximately six times faster than chickens grow naturally. The campaign is asking McDonald's to implement higher, science-based animal welfare standards for its chicken supply chain by switching to healthier breeds of birds, providing more room for the chickens to move, monitoring air and litter quality, and providing environmental enrichments.
         </P>
-      <Themed dark>
         <Button>Vist the campaign site</Button>
-      </Themed>
-    </StyledSection>
+      </StyledSection>
+    </Themed>
 
   )
 }
