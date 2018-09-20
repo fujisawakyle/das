@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { fromThemeProps } from "../../../helpers/utilities";
 import media from "../../../helpers/media";
@@ -124,6 +124,11 @@ export const Button = styled(A)`
   &:hover {
     background: ${fromThemeProps("buttonHoverBackground")};
   }
+
+  ${(props) => props.hasVoted && css`
+    filter: opacity(.3);
+    cursor: not-allowed;
+  `}
 `
 
 export const FauxButton = styled.div`

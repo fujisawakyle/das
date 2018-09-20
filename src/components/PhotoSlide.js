@@ -22,7 +22,16 @@ export default class PhotoSlide extends Component {
             <h1>{photo.artist}</h1>
             <h1>{photo.location}</h1>
           </PhotoDetailsContainer>
-          <Button onClick={() => { console.log(photo.id); this.props.voteFor(photo.id); }}>vote</Button>
+          <Button
+            hasVoted={this.props.hasVoted}
+            onClick={() => {
+              if (!this.props.hasVoted) {
+                this.props.voteFor(photo.id);
+              }
+            }}
+          >
+            vote
+          </Button>
         </div>
         <h3>{photo.votes}</h3>
       </div >

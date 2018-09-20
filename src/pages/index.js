@@ -39,6 +39,7 @@ class App extends React.Component {
     modalIsOpen: false,
     photoSelected: null,
     votedFor: null,
+    hasVoted: false,
   };
 
   componentWillMount() {
@@ -56,11 +57,30 @@ class App extends React.Component {
               {matches =>
                 matches ? (
                   <GridPhotoContainer>
-                    <Photo votedFor={this.state.votedFor} votes={photo.votes} backgroundImage={photo.url} openModal={() => this.openModal(i)} />
-                    <Button onClick={() => this.voteFor(photo.id)}>vote</Button>
+                    <Photo
+                      votedFor={this.state.votedFor}
+                      votes={photo.votes}
+                      backgroundImage={photo.url}
+                      openModal={() => this.openModal(i)}
+                    />
+                    <Button
+                      hasVoted={this.state.hasVoted}
+                      onClick={() => {
+                        if (!this.state.hasVoted) {
+                          this.voteFor(photo.id)
+                        }
+                      }}
+                    >
+                      vote
+                    </Button>
                   </GridPhotoContainer>
                 ) : (
-                    <Photo votedFor={this.state.votedFor} votes={photo.votes} backgroundImage={photo.url} openModal={() => this.openModal(i)} />
+                    <Photo
+                      votedFor={this.state.votedFor}
+                      votes={photo.votes}
+                      backgroundImage={photo.url}
+                      openModal={() => this.openModal(i)}
+                    />
                   )
               }
             </Media>
@@ -71,11 +91,28 @@ class App extends React.Component {
             {matches =>
               matches ? (
                 <GridPhotoContainer>
-                  <Photo votes={photo.votes} backgroundImage={photo.url} openModal={() => this.openModal(i)} />
-                  <Button onClick={() => this.voteFor(photo.id)}>vote</Button>
+                  <Photo
+                    votes={photo.votes}
+                    backgroundImage={photo.url}
+                    openModal={() => this.openModal(i)}
+                  />
+                  <Button
+                    hasVoted={this.state.hasVoted}
+                    onClick={() => {
+                      if (!this.state.hasVoted) {
+                        this.voteFor(photo.id)
+                      }
+                    }}
+                  >
+                    vote
+                  </Button>
                 </GridPhotoContainer>
               ) : (
-                  <Photo votes={photo.votes} backgroundImage={photo.url} openModal={() => this.openModal(i)} />
+                  <Photo
+                    votes={photo.votes}
+                    backgroundImage={photo.url}
+                    openModal={() => this.openModal(i)}
+                  />
                 )
             }
           </Media>
@@ -96,7 +133,12 @@ class App extends React.Component {
             style={ModalStyles}
           >
             <div style={{ width: '600px' }} />
-            <PhotoSlider voteFor={this.voteFor} photoDetails={photoDetails} photoSelected={this.state.photoSelected} />
+            <PhotoSlider
+              hasVoted={this.state.hasVoted}
+              voteFor={this.voteFor}
+              photoDetails={photoDetails}
+              photoSelected={this.state.photoSelected}
+            />
           </Modal>
           <br />
           <ModalTrigger
@@ -137,7 +179,7 @@ class App extends React.Component {
   }
 
   voteFor = id => {
-    this.setState({ votedFor: id });
+    this.setState({ votedFor: id, hasVoted: true });
 
   }
 }

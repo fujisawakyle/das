@@ -37,7 +37,6 @@ export const GridPhoto = styled.div`
   margin-bottom: 1em;
   margin-top: 1.5em;
   border-bottom: 1px solid #000;
-
   
 
   ${media.sm`
@@ -94,6 +93,7 @@ class Photo extends Component {
                       alignItems: `center`,
                       color: `white`,
                       textAlign: 'center',
+                      cursor: 'pointer',
                     }}
                   >
                     <FauxButton>View</FauxButton>
