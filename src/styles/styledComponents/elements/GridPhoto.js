@@ -32,8 +32,10 @@ export const GridPhotoContainer = styled.div`
 
 export const GridPhoto = styled.div`
   position: relative;
-  width: 332.5px;
-  height: 332.5px;
+  width: 95%;
+  max-width: 332.5px;
+  height: 95vw;
+  max-height: 332.5px;
   margin-bottom: 1em;
   margin-top: 1.5em;
   border-bottom: 1px solid #000;
@@ -103,8 +105,6 @@ class Photo extends Component {
                 )
             }
           </Media>
-
-
         )}
         {(this.props.votedFor > -1) && !this.state.hovering && (
           <div

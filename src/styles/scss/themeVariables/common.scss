@@ -2,7 +2,7 @@
 
 $h1Color: $primary;
 $h2Color: $primary;
-$h3Color: $primary;
+$h3Color: $quaternary;
 $h4Color: $primary;
 $h5Color: $primary;
 $pColor: $primary;
@@ -37,15 +37,6 @@ $aFont: $primaryFont;
 $pFont: $primaryFont;
 $buttonFont: $primaryFont;
 
-$h1Color: $primary;
-$h2Color: $primary;
-$h3Color: $primary;
-$h4Color: $primary;
-$h5Color: $primary;
-$pColor: $primary;
-$aColor: $primary;
-$buttonColor: $primary;
-
 ////
 // Sizes
 ////
@@ -62,8 +53,8 @@ $h1FontSizeMobile: $xLargeFont;
 $h1FontSizeDesktop: $xXLargeFont;
 $h2FontSizeMobile: $mediumFont;
 $h2FontSizeDesktop: $mediumFont;
-$h3FontSizeMobile: $smallFont;
-$h3FontSizeDesktop: $mediumFont;
+$h3FontSizeMobile: $smallerFont;
+$h3FontSizeDesktop: $smallFont;
 $h4FontSizeMobile: $largeFont;
 $h4FontSizeDesktop: $largeFont;
 $h5FontSizeMobile: $xSmallFont;
@@ -81,7 +72,7 @@ $buttonFontSizeDesktop: $smallFont;
 
 $h1Weight: "900";
 $h2Weight: "700";
-$h3Weight: "300";
+$h3Weight: "600";
 $h4Weight: "300";
 $h5Weight: "300";
 $pWeight: "300";

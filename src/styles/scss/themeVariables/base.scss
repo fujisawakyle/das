@@ -12,6 +12,7 @@
 
 $white: "#fff";
 $black: "#000";
+$grey: "#222";
 $red: "#bf2026";
 $altRed: "#EF4446";
 $hoverRed: rgb(158, 28, 32);
@@ -22,5 +23,6 @@ $transparentBlack: rgba(0, 0, 0, 0.7);
 $primary: $black; //foreground
 $secondary: $white; //background
 $tertiary: $red;
+$quaternary: $grey;
 
 @import 'common';

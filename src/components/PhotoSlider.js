@@ -25,7 +25,7 @@ export default class PhotoSlider extends Component {
       )
     )
     return (
-      <div style={{ position: 'relative', margin: '0 auto', width: '100%', height: '400px', maxWidth: '600px' }}>
+      <div style={{ position: 'relative', margin: '0 auto', width: '100%', height: 'auto' }}>
         <Carousel easing="ease" slideWidth={1} dragging={false} decorators={photoDecorators}>
           {orderedPhotos}
         </Carousel>

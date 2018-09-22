@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Media from 'react-media';
+import Pagination from 'react-js-pagination';
 import _ from 'lodash';
 import PhotoSlider from "../components/PhotoSlider";
 import TitleBar from "../components/TitleBar";
@@ -25,7 +26,10 @@ const ModalStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
+    width: '85%',
+    maxWidth: '900px',
+
   },
 };
 
@@ -40,6 +44,7 @@ class App extends React.Component {
     photoSelected: null,
     votedFor: null,
     hasVoted: false,
+    activePage: 1,
   };
 
   componentWillMount() {
@@ -51,7 +56,6 @@ class App extends React.Component {
     images = (
       photoDetails.map((photo, i) => {
         if (photo.id === this.state.votedFor) {
-          console.log(this.state.votedFor)
           return (
             <Media query="(max-width: 768px)">
               {matches =>
@@ -119,20 +123,58 @@ class App extends React.Component {
         )
       })
     )
+
+    let renderImagePage;
+    switch (this.state.activePage) {
+      case 1:
+        renderImagePage = images.slice(0, 3);
+        break;
+      case 2:
+        renderImagePage = images.slice(3, 6);
+        break;
+      default:
+        break;
+    }
     return (
       <div>
         <TitleBar />
         <IntroText />
         <StyledSection paddingBottom="5em" desktopWidth="90%" maxWidth="80em">
-          <Grid>
-            {images}
-          </Grid>
+          <Media query="(max-width: 768px)">
+            {matches =>
+              matches ? (
+                <Grid>
+                  {renderImagePage}
+                </Grid>
+              ) : (
+                  <Grid>
+                    {images}
+                  </Grid>
+                )
+            }
+          </Media>
+          <Media query="(max-width: 768px)">
+            {matches =>
+              matches ? (
+                <Pagination
+                  hideFirstLastPages
+                  activePage={this.state.activePage}
+                  onChange={this.handlePageChange}
+                  totalItemsCount={6}
+                  itemsCountPerPage={3}
+                  itemClass="page-item"
+                  linkClass="page-link"
+                />
+              ) : (
+                  <div />
+                )
+            }
+          </Media>
           <Modal
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal}
             style={ModalStyles}
           >
-            <div style={{ width: '600px' }} />
             <PhotoSlider
               hasVoted={this.state.hasVoted}
               voteFor={this.voteFor}
@@ -180,7 +222,11 @@ class App extends React.Component {
 
   voteFor = id => {
     this.setState({ votedFor: id, hasVoted: true });
+  }
 
+  handlePageChange = (pageNumber) => {
+    console.log(`the active page is ${pageNumber}`);
+    this.setState({ activePage: pageNumber });
   }
 }
 

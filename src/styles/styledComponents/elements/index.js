@@ -28,7 +28,7 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
   margin-bottom: ${props => props.marginBottom || fromThemeProps("copyMarginBottom")};
 
-  color: ${fromThemeProps("h2Color")};
+  color: ${props => props.color || fromThemeProps("h2Color")};
   font-family: ${fromThemeProps("h2Font")};
   font-size: ${fromThemeProps("h2FontSizeMobile")};
   font-weight: ${fromThemeProps("h2Weight")};
@@ -46,6 +46,7 @@ export const H3 = styled.h3`
   font-size: ${fromThemeProps("h3FontSizeMobile")};
   font-weight: ${fromThemeProps("h3Weight")};
   line-height: ${fromThemeProps("lineHeight")};
+  text-transform: uppercase;
 
   ${media.sm`
     font-size: ${fromThemeProps("h3FontSizeDesktop")};

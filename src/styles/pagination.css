@@ -1,0 +1,32 @@
+.pagination {
+  display: flex;
+  flex-direction: row;
+  font-size: 2em;
+  font-weight: bold;
+  font-family: 'Raleway', sans-serif;
+}
+
+.pagination li{
+  padding: 0.75em;
+}
+
+.pagination li.active {
+  color: #bf2026;
+}
+
+.slider-decorator-0 {
+  left: -29px !important;
+}
+
+.slider-decorator-1 {
+  right: -29px !important;
+}
+
+@media only screen and (min-width: 500px) {
+  .slider-decorator-1 {
+    right: 0 !important;
+  }
+  .slider-decorator-0 {
+    left: 0px !important;
+  }
+}

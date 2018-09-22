@@ -8,7 +8,9 @@ const Sponsor = () => {
   return (
     <StyledSection paddingTop="3em" paddingBottom="3em">
       <H2 marginBottom="1rem" textTransform="uppercase">Sponsored by</H2>
-      <img style={{ width: '300px' }} src={herbivorousLogo} />
+      <a href="https://www.theherbivorousbutcher.com/">
+        <img style={{ width: '300px' }} src={herbivorousLogo} />
+      </a>
     </StyledSection>
 
   )
