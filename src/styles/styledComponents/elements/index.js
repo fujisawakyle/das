@@ -44,6 +44,7 @@ export const H3 = styled.h3`
   color: ${fromThemeProps("h3Color")};
   font-family: ${fromThemeProps("h3Font")};
   font-size: ${props => props.fontSizeMobile || fromThemeProps("h3FontSizeMobile")};
+  font-style: ${props => props.fontStyle};
   font-weight: ${fromThemeProps("h3Weight")};
   line-height: ${fromThemeProps("lineHeight")};
   text-transform: uppercase;

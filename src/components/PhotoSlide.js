@@ -123,7 +123,7 @@ export default class PhotoSlide extends Component {
         <ModalPhoto backgroundImage={photo.url} />
         <PhotoDetails>
           <PhotoDetailsContainer >
-            <H3 fontSizeMobile="1em">{photo.title}</H3>
+            <H3 fontStyle="italic" fontSizeMobile="1em">{photo.title}</H3>
             <H3 fontSizeMobile="1em">{photo.artist}</H3>
             <H3 fontSizeMobile="1em">{photo.location}</H3>
           </PhotoDetailsContainer>
