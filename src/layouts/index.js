@@ -2,7 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import Themed from "../helpers/Themed";
 import "../styles/reset.css";
-import "../styles/pagination.css";
+import "../styles/styles.css";
 
 const Layout = ({ children }) => (
   <Themed>

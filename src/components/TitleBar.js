@@ -16,7 +16,7 @@ const TitleBar = () => {
           matches ? (
             <SVG style={{ width: '75%', maxWidth: '500px', marginBottom: '2em' }} src={INLIHorizLogo} />
           ) : (
-            <SVG style={{ width: '35% !important', maxWidth: '200px !important', padding: '2em' }} src={INLIStackedLogo} />
+              <SVG style={{ width: '35%', maxWidth: '200px', padding: '2em' }} src={INLIStackedLogo} />
             )
         }
       </Media>

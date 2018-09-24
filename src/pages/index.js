@@ -20,7 +20,7 @@ import ModalTrigger from '../components/ModalTrigger';
 
 const ModalStyles = {
   overlay: {
-    backgroundColor: 'rgba(0,0,0,0.6)',
+    backgroundColor: 'rgba(34,34, 34, 0.8)',
   },
   content: {
     top: '50%',
@@ -48,9 +48,10 @@ const OverlayExitButton = styled.div`
   align-items: center;
 
   border-radius: 50%;
-  color: '#222';
+  color: #222;
   font-family: 'Raleway'};
   font-size: 1.8rem;
+  filter: opacity(.6);
 
   cursor: pointer;
 `;
@@ -274,10 +275,12 @@ class App extends React.Component {
   // Helpers //
   openModal = (photoSelected) => {
     this.setState({ modalIsOpen: true, photoSelected });
+    document.getElementById('___gatsby').classList.add('blur');
   }
 
   closeModal = () => {
     this.setState({ modalIsOpen: false });
+    document.getElementById('___gatsby').classList.remove('blur');
   }
 
   voteFor = (id) => {
