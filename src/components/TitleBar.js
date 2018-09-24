@@ -10,17 +10,17 @@ import { H1 } from '../styles/styledComponents/elements';
 
 const TitleBar = () => {
   return (
-    <StyledColToRow boxShadow="-4px -6px 40px 0px #000">
+    <StyledColToRow boxShadow="-4px -6px 40px 0px #000" mobilePadding="2.5em 0" desktopPadding="0">
       <Media query="(max-width: 768px)">
         {matches =>
           matches ? (
             <SVG style={{ width: '75%', maxWidth: '500px', marginBottom: '2em' }} src={INLIHorizLogo} />
           ) : (
-              <SVG style={{ width: '20%', maxWidth: '500px', padding: '2em' }} src={INLIStackedLogo} />
+              <SVG style={{ width: '35%', maxWidth: '200px', padding: '2em' }} src={INLIStackedLogo} />
             )
         }
       </Media>
-      <H1>A National Art Show For Chickens</H1>
+      <H1 maxWidth="12em" desktopAlign="left">A National Art Show For Chickens</H1>
     </StyledColToRow>
   )
 

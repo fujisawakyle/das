@@ -20,12 +20,12 @@ export default class PhotoSlider extends Component {
     orderedPhotos = (
       photoDetails.map(
         (photo, i) => {
-          return <PhotoSlide voteFor={this.props.voteFor} key={i} photo={photo} />
+          return <PhotoSlide hasVoted={this.props.hasVoted} voteFor={this.props.voteFor} key={i} photo={photo} />
         }
       )
     )
     return (
-      <div style={{ position: 'relative', margin: '0 auto', width: '100%', height: '400px', maxWidth: '600px' }}>
+      <div style={{ position: 'relative', margin: '0 auto', width: '100%', height: 'auto' }}>
         <Carousel easing="ease" slideWidth={1} dragging={false} decorators={photoDecorators}>
           {orderedPhotos}
         </Carousel>

@@ -18,10 +18,12 @@ export default class ModalTrigger extends Component {
     const ModalName = this.modalTransitions[this.props.modalTransition];
     let markup;
     let bgColor;
+    let color;
 
     ModalManager.open(
       <ModalName
         bgColor={bgColor || this.props.bgColor}
+        color={color || this.props.color}
         markupToDisplay={markup || this.props.markupToDisplay}
         onRequestClose={() => true}
       />
@@ -40,7 +42,6 @@ export default class ModalTrigger extends Component {
 
 
 const ModalClickContainer = styled.div`
-  z-index: 1;
   cursor: pointer;
 `;
 

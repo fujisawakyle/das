@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Modal, ModalManager, Effect } from 'react-dynamic-modal';
+import { fromThemeProps } from '../helpers/utilities';
 
 export default class ModalScaleUpOverlay extends Component {
   closeModal = () => {
@@ -26,19 +27,21 @@ export default class ModalScaleUpOverlay extends Component {
   }
 
   render() {
-    const { markupToDisplay, onRequestClose, bgColor } = this.props;
+    const { markupToDisplay, onRequestClose, bgColor, color, exitButtonColor } = this.props;
     const defaultBgColor = 'rgba(43, 43, 43, .9)';
+    const defaultColor = '#fff';
     return (
       <Modal
         style={{
           content: {
-            background: bgColor || defaultBgColor
+            background: bgColor || defaultBgColor,
+            color: this.props.color || defaultColor
           }
         }}
         onRequestClose={onRequestClose}
         effect={Effect.ScaleUp}
       >
-        <OverlayExitButton onClick={this.closeModal}>X</OverlayExitButton>
+        <OverlayExitButton color={this.props.color} onClick={this.closeModal}>X</OverlayExitButton>
         {markupToDisplay}
       </Modal>
     );
@@ -57,10 +60,9 @@ const OverlayExitButton = styled.div`
   justify-content: center;
   align-items: center;
 
-  color: white;
-  /* border: 2px solid white; */
   border-radius: 50%;
-  /* background: red; */
+  color: ${props => props.color || '#fff'};
+  font-family: 'Raleway'};
   font-size: 1.8rem;
 
   cursor: pointer;

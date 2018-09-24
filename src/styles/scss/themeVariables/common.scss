@@ -2,7 +2,7 @@
 
 $h1Color: $primary;
 $h2Color: $primary;
-$h3Color: $primary;
+$h3Color: $quaternary;
 $h4Color: $primary;
 $h5Color: $primary;
 $pColor: $primary;
@@ -26,8 +26,7 @@ $buttonHoverBackground: $hoverRed;
 // Fonts
 ////
 
-$primaryFont: "source-sans-pro, sans-serif";
-$secondaryFont: "open-sans-pro";
+$primaryFont: 'Raleway', sans-serif;
 
 $h1Font: $primaryFont;
 $h2Font: $primaryFont;
@@ -38,19 +37,10 @@ $aFont: $primaryFont;
 $pFont: $primaryFont;
 $buttonFont: $primaryFont;
 
-$h1Color: $primary;
-$h2Color: $primary;
-$h3Color: $primary;
-$h4Color: $primary;
-$h5Color: $primary;
-$pColor: $primary;
-$aColor: $primary;
-$buttonColor: $primary;
-
 ////
 // Sizes
 ////
-
+$xXLargeFont: 4.25rem;
 $xLargeFont: 3rem;
 $largeFont: 2.5rem;
 $mediumFont: 2rem;
@@ -59,44 +49,45 @@ $smallerFont: 1.25rem;
 $xSmallFont: 1rem;
 $xXSmallFont: .75rem;
 
-$h1FontSizeMobile: $mediumFont;
-$h1FontSizeDesktop: $xLargeFont;
-$h2FontSizeMobile: $smallerFont;
-$h2FontSizeDesktop: $smallFont;
-$h3FontSizeMobile: $smallFont;
-$h3FontSizeDesktop: $mediumFont;
+$h1FontSizeMobile: $xLargeFont;
+$h1FontSizeDesktop: $xXLargeFont;
+$h2FontSizeMobile: $mediumFont;
+$h2FontSizeDesktop: $mediumFont;
+$h3FontSizeMobile: $smallerFont;
+$h3FontSizeDesktop: $smallFont;
 $h4FontSizeMobile: $largeFont;
 $h4FontSizeDesktop: $largeFont;
 $h5FontSizeMobile: $xSmallFont;
 $h5FontSizeDesktop: $xSmallFont;
-$pFontSizeMobile: $smallerFont;
-$pFontSizeDesktop: $smallerFont;
+$pFontSizeMobile: $smallFont;
+$pFontSizeDesktop: $smallFont;
 $aFontSizeMobile: $smallerFont;
 $aFontSizeDesktop: $smallFont;
-$buttonFontSizeMobile: $smallerFont;
-$buttonFontSizeDesktop: $smallerFont;
+$buttonFontSizeMobile: $smallFont;
+$buttonFontSizeDesktop: $smallFont;
 
 ////
 // Weights
 ////
 
-$h1Weight: "600";
-$h2Weight: "600";
-$h3Weight: "300";
+$h1Weight: "900";
+$h2Weight: "700";
+$h3Weight: "600";
 $h4Weight: "300";
 $h5Weight: "300";
 $pWeight: "300";
 $aWeight: "500";
 $buttonWeight: "bold";
 
-
-
+$copyMarginBottom: 3rem;
 $sectionPaddingY: 1em;
 $sectionPaddingX: 1em;
+$mobileWidth: 95%;
 $contentWidth: 65%;
 $contentMax: 50em;
 $logoListMax: 25em;
 $contentMaxConstained: 31em;
+$smallLineHeight: 1.2;
 $lineHeight: 1.5;
 
 //
