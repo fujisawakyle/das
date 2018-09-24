@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import mousetrap from 'mousetrap';
 import chevronGreyIcon from '../assets/png/chevron--dark.png';
 import styled from 'styled-components';
 
@@ -12,6 +13,15 @@ export default [
   // the slider dots
   {
     component: class extends React.Component {
+
+      componentDidMount() {
+        mousetrap.bind(`left`, (e) => this.handleClick(e))
+      }
+
+      componentWillUnmount() {
+        mousetrap.unbind(`left`)
+      }
+
       handleClick = e => {
         e.preventDefault();
         this.props.previousSlide();
@@ -46,6 +56,15 @@ export default [
   },
   {
     component: class extends React.Component {
+
+      componentDidMount() {
+        mousetrap.bind(`right`, (e) => this.handleClick(e))
+      }
+
+      componentWillUnmount() {
+        mousetrap.unbind(`right`)
+      }
+
       handleClick = e => {
         e.preventDefault();
         this.props.nextSlide();

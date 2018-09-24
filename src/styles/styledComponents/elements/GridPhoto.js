@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Media from 'react-media';
+import SVG from 'react-inlinesvg';
 import styled, { css } from 'styled-components';
 import media from '../../../helpers/media';
 import { flex } from '../../../helpers/mixins';
-import { FauxButton } from '../elements';
+import { H2, FauxButton } from '../elements';
+import heartSVG from '../../../assets/svg/heart.svg';
+import Themed from '../../../helpers/Themed';
 
 export const Grid = styled.div`
   ${flex({ jc: "center", ai: "center" })};
@@ -38,7 +41,6 @@ export const GridPhoto = styled.div`
   max-height: 332.5px;
   margin-bottom: 1em;
   margin-top: 1.5em;
-  border-bottom: 1px solid #000;
   
 
   ${media.sm`
@@ -59,6 +61,11 @@ export const GridPhoto = styled.div`
     background-position: center;
   `};
 `;
+
+const VotesContainer = styled.div`
+  ${flex({ ai: 'center', jc: 'center' })};
+`
+
 
 class Photo extends Component {
   state = {
@@ -88,7 +95,7 @@ class Photo extends Component {
                       right: 0,
                       width: '332.5px',
                       height: '332.5px',
-                      backgroundColor: `rgba(0,0,0,0.3)`,
+                      backgroundColor: `rgba(0,0,0,0.4)`,
                       display: `flex`,
                       flexDirection: 'column',
                       justifyContent: `center`,
@@ -100,7 +107,11 @@ class Photo extends Component {
                   >
                     <FauxButton>View</FauxButton>
                     <br />
-                    {this.props.votes}
+                    <Themed dark>
+                      <VotesContainer>
+                        <H2 style={{ marginBottom: 0 }}><span><SVG src={heartSVG} /></span><span style={{ fontSize: '1.25em' }}>{this.props.votes}</span></H2>
+                      </VotesContainer>
+                    </Themed>
                   </div>
                 )
             }
@@ -116,20 +127,23 @@ class Photo extends Component {
               right: 0,
               width: '332.5px',
               height: '332.5px',
-              backgroundColor: `rgba(255,255,255,0.3)`,
+              backgroundColor: `rgba(255,255,255,0.7)`,
               display: `flex`,
               flexDirection: 'column',
               justifyContent: `center`,
               alignItems: `center`,
-              color: `white`,
-              textAlign: 'center'
+              color: `#222`,
+              textAlign: 'center',
+              fontFamily: 'Raleway',
+              fontSize: '1.75em',
+              fontWeight: '600'
             }}
           >
-            <h1>Thanks for voting today!</h1>
+            <h1 style={{ padding: '0 1em' }}>Thanks for voting today!</h1>
             <br />
-            <h1>🐔</h1>
+            <h1 style={{ fontSize: '2.5em' }}>🐔</h1>
             <br />
-            <h1>Come back tomorrow to cast another vote.</h1>
+            <h1 style={{ padding: '0 1em' }}>Come back tomorrow to cast another vote.</h1>
           </div>
         )}
       </GridPhoto>

@@ -43,13 +43,13 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
   color: ${fromThemeProps("h3Color")};
   font-family: ${fromThemeProps("h3Font")};
-  font-size: ${fromThemeProps("h3FontSizeMobile")};
+  font-size: ${props => props.fontSizeMobile || fromThemeProps("h3FontSizeMobile")};
   font-weight: ${fromThemeProps("h3Weight")};
   line-height: ${fromThemeProps("lineHeight")};
   text-transform: uppercase;
 
   ${media.sm`
-    font-size: ${fromThemeProps("h3FontSizeDesktop")};
+    font-size: ${props => props.fontSizeDesktop || fromThemeProps("h3FontSizeDesktop")};
   `}
 `;
 
@@ -77,16 +77,16 @@ export const H5 = styled.h5`
 `;
 
 export const P = styled.p`
-  margin-bottom: ${fromThemeProps("copyMarginBottom")};
+  margin-bottom: ${props => props.marginBottom || fromThemeProps("copyMarginBottom")};
 
   color: ${fromThemeProps("h5Color")};
   font-family: ${fromThemeProps("pFont")};
-  font-size: ${fromThemeProps("pFontSizeMobile")};
+  font-size: ${props => props.fontSizeMobile || fromThemeProps("pFontSizeMobile")};
   font-weight: ${fromThemeProps("pWeight")};
   line-height: ${fromThemeProps("lineHeight")};
 
   ${media.sm`
-    font-size: ${fromThemeProps("pFontSizeDesktop")};
+    font-size: ${props => props.fontSizeDesktop || fromThemeProps("pFontSizeDesktop")};
   `}
 `;
 
@@ -96,6 +96,7 @@ export const A = styled.a`
   font-size: ${fromThemeProps("aFontSizeMobile")};
   font-weight: ${fromThemeProps("aWeight")};
   text-decoration: underline;
+  text-align: center;
 
   ${media.sm`
     font-size: ${fromThemeProps("aFontSizeDesktop")};

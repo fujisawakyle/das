@@ -27,6 +27,8 @@ const Container = styled.div`
   p {
     width: 100%;
     font-weight: 500;
+    font-size: 1.2em;
+    line-height: 1.5;
   }
 `;
 
@@ -41,6 +43,8 @@ const Intro = styled.h4`
   text-align: center;
   line-height: 1.8;
   font-size: 1.2rem;
+  margin: 0 0 1.45rem;
+  font-weight: 700;
 `;
 
 export const AboutTHLMarkup = (
@@ -55,29 +59,35 @@ export const AboutTHLMarkup = (
         The Humane League’s mission is to reduce the suffering of as many
         animals as possible, as effectively as possible.
       </Intro>
-      <p>
+      <P>
         We work to reform the way farm animals are treated while also inspiring
         people to make more compassionate food choices. Our strategy includes
         hard-hitting corporate campaigns and wide-ranging outreach and education
         programs, supported by an extensive network of organizations, activists
         and supporters around the world.
-      </p>
-      <p>
+      </P>
+      <br />
+      <br />
+      <P>
         In the US, we have on-the-ground organizers in major cities across the
         country. These grassroots staff build and strengthen local communities
         of changemakers that support our work and spread our message, amplifying
         our ability to create meaningful change for farm animals.
-      </p>
-      <p>
+      </P>
+      <br />
+      <br />
+      <P>
         Internationally, we have offices in Mexico, the UK and Japan, where we
         are engaged in region-specific initiatives that are creating positive
         results. Our reach extends globally with the Open Wing Alliance.
-      </p>
+      </P>
+      <br />
       <Intro>
         Animals don’t have to suffer. Get involved to create the change.
       </Intro>
+      <br />
       <a target="_blank" href="https://thehumaneleague.org/get-involved">
-        <Button>Create change</Button>
+        <Button className="jqeSHb">Create change</Button>
       </a>
     </Container>
   </FlexCenter>

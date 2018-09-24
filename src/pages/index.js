@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Media from 'react-media';
+import styled from 'styled-components';
 import Pagination from 'react-js-pagination';
 import _ from 'lodash';
 import PhotoSlider from "../components/PhotoSlider";
@@ -11,7 +12,7 @@ import Footer from "../components/Footer";
 import Sponsor from "../components/Sponsor";
 import Photo, { Grid, GridPhotoContainer } from '../styles/styledComponents/elements/GridPhoto';
 import photoData from "../data/photos.json";
-import { Button } from "../styles/styledComponents/elements"
+import { P, Button } from "../styles/styledComponents/elements"
 import { StyledSection } from "../styles/styledComponents/blocks";
 import { AboutTHLMarkup, ContestRulesMarkup } from "../components/ModalMarkup";
 import ModalTrigger from '../components/ModalTrigger';
@@ -29,14 +30,36 @@ const ModalStyles = {
     transform: 'translate(-50%, -50%)',
     width: '85%',
     maxWidth: '900px',
-
+    paddingTop: '50px'
   },
 };
+
+const OverlayExitButton = styled.div`
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  color: '#222';
+  font-family: 'Raleway'};
+  font-size: 1.8rem;
+
+  cursor: pointer;
+`;
 
 Modal.setAppElement(`#___gatsby`)
 
 let images;
 let photoDetails;
+let voteButtonText;
+let votedMessage;
 
 class App extends React.Component {
   state = {
@@ -52,6 +75,15 @@ class App extends React.Component {
   }
 
   render() {
+
+    if (this.state.hasVoted) {
+      voteButtonText = 'Voted';
+      votedMessage = "You've already voted today!";
+    } else {
+      voteButtonText = 'Vote';
+      votedMessage = "";
+    }
+
 
     images = (
       photoDetails.map((photo, i) => {
@@ -75,8 +107,14 @@ class App extends React.Component {
                         }
                       }}
                     >
-                      vote
+                      {voteButtonText}
                     </Button>
+                    <P
+                      fontSizeMobile="0.7em"
+                      marginBottom="0"
+                    >
+                      {votedMessage}
+                    </P>
                   </GridPhotoContainer>
                 ) : (
                     <Photo
@@ -108,8 +146,14 @@ class App extends React.Component {
                       }
                     }}
                   >
-                    vote
+                    {voteButtonText}
                   </Button>
+                  <P
+                    fontSizeMobile="0.7em"
+                    marginBottom="0"
+                  >
+                    {votedMessage}
+                  </P>
                 </GridPhotoContainer>
               ) : (
                   <Photo
@@ -175,6 +219,7 @@ class App extends React.Component {
             onRequestClose={this.closeModal}
             style={ModalStyles}
           >
+            <OverlayExitButton onClick={this.closeModal}>X</OverlayExitButton>
             <PhotoSlider
               hasVoted={this.state.hasVoted}
               voteFor={this.voteFor}
