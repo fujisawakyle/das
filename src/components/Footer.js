@@ -22,9 +22,6 @@ export default class Footer extends Component {
           triggerItem={this.props.triggerItem}
           markupToDisplay={this.props.markupToDisplay}
         />
-        <Disclaimer style={{ marginTop: '2.5em' }}>
-          Images representative of farms in McDonald's supply chain
-      </Disclaimer>
       </Container>
     );
   }
@@ -37,11 +34,9 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
+  padding: 3rem 0;
   font-family: 'Raleway', sans-serif;
-  ${media.md`
-    padding: 1rem 0;
-  `};
+  
 `;
 
 const Logo = styled.img`
@@ -49,13 +44,3 @@ const Logo = styled.img`
   max-width: 300px;
 `;
 
-const Disclaimer = styled.p`
-  text-align: center;
-  font-size: 0.6rem;
-  color: #fff;
-  margin-bottom: 0;
-
-  ${media.sm`
-    font-size: .2rem;
-  `};
-`;

@@ -31,7 +31,8 @@ const ModalStyles = {
     transform: 'translate(-50%, -50%)',
     width: '85%',
     maxWidth: '900px',
-    paddingTop: '50px'
+    paddingTop: '50px',
+    boxShadow: '0px 0px 25px 5px #222'
   },
 };
 
@@ -125,6 +126,7 @@ class App extends React.Component {
                       <P
                         fontSizeMobile="0.7em"
                         marginBottom="0"
+                        marginTop="1em"
                       >
                         {votedMessage}
                       </P>
@@ -164,6 +166,7 @@ class App extends React.Component {
                     <P
                       fontSizeMobile="0.7em"
                       marginBottom="0"
+                      marginTop="1em"
                     >
                       {votedMessage}
                     </P>
@@ -260,7 +263,9 @@ class App extends React.Component {
               style={{
                 textDecoration: 'underline',
                 color: '#fff',
-                textTransform: 'uppercase'
+                textTransform: 'uppercase',
+                fontWeight: 'bold',
+                fontSize: '1.1em'
               }}
             >
               About The Humane League

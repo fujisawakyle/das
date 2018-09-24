@@ -142,6 +142,7 @@ export default class PhotoSlide extends Component {
             <P
               fontSizeMobile="0.7em !important"
               marginBottom="1em"
+              marginTop="1em"
             >
               {votedMessage}
             </P>
