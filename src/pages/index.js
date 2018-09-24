@@ -4,6 +4,7 @@ import Media from 'react-media';
 import styled from 'styled-components';
 import Pagination from 'react-js-pagination';
 import _ from 'lodash';
+import cookie from 'react-cookies';
 import PhotoSlider from '../components/PhotoSlider';
 import TitleBar from '../components/TitleBar';
 import IntroText from '../components/IntroText';
@@ -61,6 +62,7 @@ let photoDetails;
 let voteButtonText;
 let votedMessage;
 let renderImagePage;
+let cookieStatus;
 
 class App extends React.Component {
   state = {
@@ -75,6 +77,11 @@ class App extends React.Component {
   componentWillMount() {
     photoDetails = _.shuffle(photoData);
     typeof (document) !== "undefined" && this.loadPhotosFromAPI();
+
+    cookie.load('voted') ? cookieStatus = parseInt(cookie.load('voted')) : cookieStatus = null;
+    if (cookieStatus) {
+      this.setState({ votedFor: cookieStatus, hasVoted: true })
+    }
   }
 
   render() {
@@ -87,10 +94,12 @@ class App extends React.Component {
       votedMessage = "";
     }
 
+
+
     if (this.state.photoDetails) {
       images = (
         (this.state.photoDetails).map((photo, i) => {
-          if (photo.id === this.state.votedFor) {
+          if (photo.id === this.state.votedFor || parseInt(photo.id) === cookieStatus) {
             return (
               <Media query='(max-width: 768px)'>
                 {matches =>
@@ -183,7 +192,7 @@ class App extends React.Component {
       }
 
     } else {
-      images = <H2>loading...</H2>
+      images = <H2>Loading...</H2>
     }
     return (
       <div>
@@ -279,11 +288,11 @@ class App extends React.Component {
         body: JSON.stringify({ art_work_id: id }),
         headers: { 'Content-Type': 'application/json' },
         mode: 'cors',
-        credentials: 'include',
       }
     ).
       then(response => response.json()).
       then(json => {
+
         if (json.error) alert('There was an error');
         // hook this up to error messaging
         // possible errors: 'id not found', 'vote counted for today', 'vote limit reached'
@@ -293,6 +302,10 @@ class App extends React.Component {
           const relevantPhoto = photoDetails.find(photo => photo.id === id);
           relevantPhoto.votes += 1;
           this.setState({ votedFor: id, hasVoted: true });
+          //set cookie
+          const expires = new Date();
+          expires.setHours(23, 59, 59, 999);
+          cookie.save('voted', id, { path: '/', expires });
         }
       });
   }

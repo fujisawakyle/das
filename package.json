@@ -20,6 +20,7 @@
     "netlify-cms": "^1.9.2",
     "nuka-carousel": "https://github.com/fujisawakyle/nuka-carousel/tarball/3.0.1",
     "react-burger-menu": "^2.5.2",
+    "react-cookies": "^0.1.0",
     "react-dynamic-modal": "https://github.com/fujisawakyle/react-dynamic-modal/tarball/master",
     "react-helmet": "^5.2.0",
     "react-inlinesvg": "^0.8.1",

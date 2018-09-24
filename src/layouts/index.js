@@ -1,7 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
 import Themed from "../helpers/Themed";
-// import Header from "../components/Header";
 import "../styles/reset.css";
 import "../styles/pagination.css";
 
@@ -48,7 +47,6 @@ const Layout = ({ children }) => (
           }
         ]}>
       </Helmet>
-      {/* <Header /> */}
       {children()}
     </div>
   </Themed>
