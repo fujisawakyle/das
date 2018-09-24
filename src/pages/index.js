@@ -89,7 +89,7 @@ class App extends React.Component {
       photoDetails.map((photo, i) => {
         if (photo.id === this.state.votedFor) {
           return (
-            <Media query="(max-width: 767px)">
+            <Media query="(max-width: 768px)">
               {matches =>
                 matches ? (
                   <GridPhotoContainer>
@@ -129,7 +129,7 @@ class App extends React.Component {
           )
         }
         return (
-          <Media query="(max-width: 767px)">
+          <Media query="(max-width: 768px)">
             {matches =>
               matches ? (
                 <GridPhotoContainer>
