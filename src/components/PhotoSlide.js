@@ -83,6 +83,10 @@ const VoteButton = styled(Button)`
   
   margin-bottom: 1em;
 
+  ${props => props.hasVoted && css`
+    margin-bottom: 0;
+  `}
+
   ${media.xs`
     margin-bottom: 0;
     
@@ -137,7 +141,7 @@ export default class PhotoSlide extends Component {
             </VoteButton>
             <P
               fontSizeMobile="0.7em !important"
-              marginBottom="0"
+              marginBottom="1em"
             >
               {votedMessage}
             </P>
