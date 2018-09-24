@@ -37,9 +37,9 @@ class App extends React.Component {
     votedFor: null,
   };
 
-  async componentWillMount() {
+  componentWillMount() {
     photoDetails = _.shuffle(photoData);
-    this.loadPhotosFromAPI();
+    typeof(document) !== "undefined" && this.loadPhotosFromAPI();
   }
 
   render() {
@@ -52,7 +52,7 @@ class App extends React.Component {
               {matches =>
                   matches ? (
                     <GridPhotoContainer>
-                      <Photo votedFor={this.state.votedFor} votes={photo.votes} backgroundImage={photo.url} openModal={() => this.openModal(i)} />
+                      <Photo votedFor={typeof(document) !== "undefined" && this.state.votedFor} votes={photo.votes} backgroundImage={photo.url} openModal={() => this.openModal(i)} />
                       <Button onClick={() => this.voteFor(photo.id)}>vote</Button>
                     </GridPhotoContainer>
                   ) : (
@@ -128,8 +128,8 @@ class App extends React.Component {
     this.setState({ modalIsOpen: false });
   }
 
-  voteFor = async(id) => {
-    const response = await fetch(
+  voteFor = (id) => {
+    fetch(
       'https://hq-staging.thehumaneleague.org/votes',
       {
         method: 'POST',
@@ -138,24 +138,26 @@ class App extends React.Component {
         mode: 'cors',
         credentials: 'include',
       }
-    );
-    const json = await response.json();
-    if (json.error) alert('There was an error');
-    // hook this up to error messaging
-    // possible errors: 'id not found', 'vote counted for today', 'vote limit reached'
-    if (json.result === 'success') {
-      const photoDetails = this.state.photoDetails;
-      // Maybe add votedFor data here?
-      const relevantPhoto = photoDetails.find(photo => photo.id === id);
-      relevantPhoto.votes += 1;
-      this.setState({ votedFor: id });
-    };
+    ).
+      then(response => response.json()).
+      then(json => {
+        if (json.error) alert('There was an error');
+        // hook this up to error messaging
+        // possible errors: 'id not found', 'vote counted for today', 'vote limit reached'
+        if (json.result === 'success') {
+          const photoDetails = this.state.photoDetails;
+          // Maybe add votedFor data here?
+          const relevantPhoto = photoDetails.find(photo => photo.id === id);
+          relevantPhoto.votes += 1;
+          this.setState({ votedFor: id });
+        }
+      });
   }
 
-  loadPhotosFromAPI = async() => {
-    const results = await fetch('https://hq-staging.thehumaneleague.org/votes', {});
-    const json  = await results.json();
-    this.setPhotos(json);
+  loadPhotosFromAPI = () => {
+    fetch('https://hq-staging.thehumaneleague.org/votes', {}).
+      then(response => response.json()).
+      then(json => this.setPhotos(json));
   }
 
   setPhotos = photos => this.setState({ photoDetails: photos });
