@@ -186,10 +186,16 @@ class App extends React.Component {
 
       switch (this.state.activePage) {
         case 1:
-          renderImagePage = images.slice(0, 3);
+          renderImagePage = images.slice(0, 5);
           break;
         case 2:
-          renderImagePage = images.slice(3, 6);
+          renderImagePage = images.slice(5, 10);
+          break;
+        case 3:
+          renderImagePage = images.slice(10, 15);
+          break;
+        case 4:
+          renderImagePage = images.slice(15, 20);
           break;
         default:
           break;
@@ -210,8 +216,8 @@ class App extends React.Component {
                   hideFirstLastPages
                   activePage={this.state.activePage}
                   onChange={this.handlePageChange}
-                  totalItemsCount={6}
-                  itemsCountPerPage={3}
+                  totalItemsCount={20}
+                  itemsCountPerPage={5}
                   itemClass="page-item"
                   linkClass="page-link"
                 />
@@ -240,8 +246,8 @@ class App extends React.Component {
                   hideFirstLastPages
                   activePage={this.state.activePage}
                   onChange={this.handlePageChange}
-                  totalItemsCount={6}
-                  itemsCountPerPage={3}
+                  totalItemsCount={20}
+                  itemsCountPerPage={5}
                   itemClass="page-item"
                   linkClass="page-link"
                 />
