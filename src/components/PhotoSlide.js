@@ -118,9 +118,11 @@ export default class PhotoSlide extends Component {
       votedMessage = '';
     }
 
+    let photoMobileURL = photo.url.replace(new RegExp("(.*)" + 'lg'), "$1sm")
+
     renderDetails = (
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-        <ModalPhoto backgroundImage={photo.url} />
+        <ModalPhoto backgroundImage={photoMobileURL} />
         <PhotoDetails>
           <PhotoDetailsContainer >
             <H3 fontStyle="italic" fontSizeMobile="1em">{photo.title}</H3>

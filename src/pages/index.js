@@ -59,12 +59,13 @@ const OverlayExitButton = styled.div`
 
 Modal.setAppElement(`#___gatsby`)
 
-let images;
-let photoDetails;
-let voteButtonText;
-let votedMessage;
-let renderImagePage;
-let cookieStatus;
+
+let images,
+  photoDetails,
+  voteButtonText,
+  votedMessage,
+  renderImagePage,
+  cookieStatus;
 
 class App extends React.Component {
   state = {
@@ -101,6 +102,9 @@ class App extends React.Component {
     if (this.state.photoDetails) {
       images = (
         (this.state.photoDetails).map((photo, i) => {
+
+          let photoMobileURL = photo.url.replace(new RegExp("(.*)" + 'lg'), "$1sm");
+
           if (photo.id === this.state.votedFor || parseInt(photo.id) === cookieStatus) {
             return (
               <Media query='(max-width: 768px)'>
@@ -110,7 +114,7 @@ class App extends React.Component {
                       <Photo
                         votedFor={this.state.votedFor}
                         votes={photo.votes}
-                        backgroundImage={photo.url}
+                        backgroundImage={photoMobileURL}
                         openModal={() => this.openModal(i)}
                       />
                       <Button
@@ -150,7 +154,7 @@ class App extends React.Component {
                   <GridPhotoContainer>
                     <Photo
                       votes={photo.votes}
-                      backgroundImage={photo.url}
+                      backgroundImage={photoMobileURL}
                       openModal={() => this.openModal(i)}
                     />
                     <Button
