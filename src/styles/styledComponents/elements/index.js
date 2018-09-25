@@ -80,7 +80,7 @@ export const H5 = styled.h5`
 export const P = styled.p`
   margin-bottom: ${props => props.marginBottom || fromThemeProps("copyMarginBottom")};
   margin-top: ${props => props.marginTop};
-  
+
   color: ${fromThemeProps("h5Color")};
   font-family: ${fromThemeProps("pFont")};
   font-size: ${props => props.fontSizeMobile || fromThemeProps("pFontSizeMobile")};

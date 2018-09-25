@@ -13,9 +13,13 @@ export const Grid = styled.div`
   flex-wrap: wrap;
   width: 100%;
   margin: 0 auto;
-  margin-bottom: 3em;
+  margin-bottom: 0;
   max-width: 70em;
   
+  ${media.sm`
+    margin-bottom: 3em;
+  `}
+
 `;
 
 export const GridPhotoContainer = styled.div`
@@ -26,6 +30,7 @@ export const GridPhotoContainer = styled.div`
 
   :last-of-type {
     border-bottom: none;
+    padding-bottom: 0;
   }
 
   ${media.sm`

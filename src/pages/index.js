@@ -117,7 +117,7 @@ class App extends React.Component {
                         hasVoted={this.state.hasVoted}
                         onClick={() => {
                           if (!this.state.hasVoted) {
-                            this.voteFor(photo.id)
+                            this.openModal(i)
                           }
                         }}
                       >
@@ -157,7 +157,7 @@ class App extends React.Component {
                       hasVoted={this.state.hasVoted}
                       onClick={() => {
                         if (!this.state.hasVoted) {
-                          this.voteFor(photo.id)
+                          this.openModal(i)
                         }
                       }}
                     >
@@ -206,6 +206,23 @@ class App extends React.Component {
           <Media query="(max-width: 768px)">
             {matches =>
               matches ? (
+                <Pagination
+                  hideFirstLastPages
+                  activePage={this.state.activePage}
+                  onChange={this.handlePageChange}
+                  totalItemsCount={6}
+                  itemsCountPerPage={3}
+                  itemClass="page-item"
+                  linkClass="page-link"
+                />
+              ) : (
+                  <div />
+                )
+            }
+          </Media>
+          <Media query="(max-width: 768px)">
+            {matches =>
+              matches ? (
                 <Grid>
                   {renderImagePage}
                 </Grid>
@@ -246,6 +263,7 @@ class App extends React.Component {
               photoSelected={this.state.photoSelected}
             />
           </Modal>
+          <br />
           <br />
           <ModalTrigger
             bgColor="#fff"
