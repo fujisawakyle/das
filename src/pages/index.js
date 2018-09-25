@@ -316,7 +316,7 @@ class App extends React.Component {
 
   voteFor = (id) => {
     fetch(
-      'https://hq-staging.thehumaneleague.org/votes',
+      'https://hq.thehumaneleague.org/votes',
       {
         method: 'POST',
         body: JSON.stringify({ art_work_id: id }),
@@ -327,7 +327,7 @@ class App extends React.Component {
       then(response => response.json()).
       then(json => {
 
-        if (json.error) alert('There was an error');
+        if (json.error) alert('You have reached the vote limit');
         // hook this up to error messaging
         // possible errors: 'id not found', 'vote counted for today', 'vote limit reached'
         if (json.result === 'success') {
@@ -345,7 +345,7 @@ class App extends React.Component {
   }
 
   loadPhotosFromAPI = () => {
-    fetch('https://hq-staging.thehumaneleague.org/votes', {}).
+    fetch('https://hq.thehumaneleague.org/votes', {}).
       then(response => response.json()).
       then(json => this.setPhotos(_.shuffle(json)));
   }
