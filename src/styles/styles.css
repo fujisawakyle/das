@@ -1,7 +1,7 @@
 .pagination {
   display: flex;
   flex-direction: row;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
   font-family: 'Raleway', sans-serif;
 }
@@ -22,7 +22,15 @@
   right: -20px !important;
 }
 
+.blur {
+  filter: blur(4px);
+}
+
 @media only screen and (min-width: 500px) {
+  .pagination {
+    font-size: 2em;
+  }
+
   .slider-decorator-1 {
     right: 0 !important;
   }
@@ -31,6 +39,3 @@
   }
 }
 
-.blur {
-  filter: blur(4px);
-}
