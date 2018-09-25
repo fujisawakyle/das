@@ -78,9 +78,7 @@ class App extends React.Component {
   };
 
   componentWillMount() {
-    photoDetails = _.shuffle(photoData);
     typeof (document) !== "undefined" && this.loadPhotosFromAPI();
-
     cookie.load('voted') ? cookieStatus = parseInt(cookie.load('voted')) : cookieStatus = null;
     if (cookieStatus) {
       this.setState({ votedFor: cookieStatus, hasVoted: true })
@@ -349,7 +347,7 @@ class App extends React.Component {
   loadPhotosFromAPI = () => {
     fetch('https://hq-staging.thehumaneleague.org/votes', {}).
       then(response => response.json()).
-      then(json => this.setPhotos(json));
+      then(json => this.setPhotos(_.shuffle(json)));
   }
 
 
