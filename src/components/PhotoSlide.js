@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SVG from 'react-inlinesvg';
 import media from '../helpers/media';
+import Media from 'react-media';
 import { Button } from '../styles/styledComponents/elements';
 import styled, { css } from 'styled-components';
 import { flex } from '../helpers/mixins';
@@ -122,7 +123,15 @@ export default class PhotoSlide extends Component {
 
     renderDetails = (
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-        <ModalPhoto backgroundImage={photoMobileURL} />
+        <Media query="(max-width: 768px)">
+          {matches =>
+            matches ? (
+              <ModalPhoto backgroundImage={photoMobileURL} />
+            ) : (
+                <ModalPhoto backgroundImage={photo.url} />
+              )
+          }
+        </Media>
         <PhotoDetails>
           <PhotoDetailsContainer >
             <H3 fontStyle="italic" fontSizeMobile="1em">{photo.title}</H3>
