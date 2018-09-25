@@ -31,7 +31,7 @@ const ModalStyles = {
     transform: 'translate(-50%, -50%)',
     width: '85%',
     maxWidth: '900px',
-    paddingTop: '50px',
+    paddingTop: '20px',
     boxShadow: '0px 0px 25px 5px #222'
   },
 };
