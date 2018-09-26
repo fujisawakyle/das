@@ -48,7 +48,7 @@ const Layout = ({ children }) => (
         ]}> */}
       <head>
 
-        <meta property="og:title" content="I'm Not Lovin' It Digital Art Show" />
+        <meta property="og:title" content="A National Art Show for Chickens" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://artshow.imnotlovinit.com" />
         <meta property="og:image" content="https://s3.amazonaws.com/the-humane-league-campaigns/mcdonalds/images/campaigns-mcdonalds-OG-share-image-artshow.jpg" />
