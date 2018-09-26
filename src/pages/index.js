@@ -55,6 +55,7 @@ const OverlayExitButton = styled.div`
   filter: opacity(.6);
 
   cursor: pointer;
+  z-index: 1;
 `;
 
 Modal.setAppElement(`#___gatsby`)
