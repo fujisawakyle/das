@@ -14,6 +14,10 @@
   color: #bf2026;
 }
 
+.slider-list {
+  max-height:500px;
+}
+
 .slider-decorator-0 {
   left: -20px !important;
 }
@@ -29,6 +33,10 @@
 @media only screen and (min-width: 500px) {
   .pagination {
     font-size: 2em;
+  }
+
+  .slider-list {
+    max-height:none;
   }
 
   .slider-decorator-1 {
