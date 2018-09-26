@@ -7,7 +7,7 @@ import "../styles/styles.css";
 const Layout = ({ children }) => (
   <Themed>
     <div>
-      {/* <Helmet
+      <Helmet
         title="Digital Art Show"
         meta={[
           {
@@ -44,11 +44,13 @@ const Layout = ({ children }) => (
             property: 'og:image',
             content:
               'https://s3.amazonaws.com/the-humane-league-campaigns/mcdonalds/images/campaigns-mcdonalds-OG-share-image-artshow.jpg'
+          },
+          {
+            property: 'og:updated_time', content: '2018-09-26T1:19:06-04:00'
           }
-        ]}> */}
-      <head>
-
-        <meta property="og:title" content="A National Art Show for Chickens" />
+        ]}>
+      
+        {/* <meta property="og:title" content="A National Art Show for Chickens" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://artshow.imnotlovinit.com" />
         <meta property="og:image" content="https://s3.amazonaws.com/the-humane-league-campaigns/mcdonalds/images/campaigns-mcdonalds-OG-share-image-artshow.jpg" />
@@ -58,9 +60,9 @@ const Layout = ({ children }) => (
         <meta property="twitter:url" content="https://artshow.imnotlovinit.com" />
         <meta property="twitter:title" content="I'm Not Lovin' It Digital Art Show" />
         <meta property="twitter:description" content="Vote on your favorite piece of artwork. At the end of the contest, the top three submissions will be chosen as winners. You may cast a vote once a day." />
-        <meta property="twitter:image" content="https://s3.amazonaws.com/the-humane-league-campaigns/mcdonalds/images/campaigns-mcdonalds-OG-share-image-artshow.jpg" />
-      </head>
-      {/* </Helmet> */}
+        <meta property="twitter:image" content="https://s3.amazonaws.com/the-humane-league-campaigns/mcdonalds/images/campaigns-mcdonalds-OG-share-image-artshow.jpg" /> */}
+      
+      </Helmet>
       {children()}
     </div>
   </Themed>
