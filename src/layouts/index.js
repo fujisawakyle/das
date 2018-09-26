@@ -50,6 +50,10 @@ const Layout = ({ children }) => (
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://artshow.imnotlovinit.com" />
         <meta property="og:image" content="https://s3.amazonaws.com/the-humane-league-campaigns/mcdonalds/images/campaigns-mcdonalds-OG-share-image-artshow.jpg" />
+        <meta property="twitter:card" content="photo" />
+        <meta property="twitter:url" content="https://artshow.imnotlovinit.com" />
+        <meta property="twitter:title" content="I'm Not Lovin' It Digital Art Show" />
+        <meta property="twitter:image" content="https://s3.amazonaws.com/the-humane-league-campaigns/mcdonalds/images/campaigns-mcdonalds-OG-share-image-artshow.jpg" />
       </Helmet>
       {children()}
     </div>
