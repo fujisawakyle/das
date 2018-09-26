@@ -20,7 +20,7 @@ const Layout = ({ children }) => (
             content: 'animal welfare'
           },
           { name: 'twitter:card', content: 'photo' },
-          { name: 'twitter:url', content: 'https://www.digitalartshow.com' },
+          { name: 'twitter:url', content: 'https://artshow.imnotlovinit.com' },
           { name: 'twitter:title', content: "I'm Not Lovin It Art Show" },
           { name: 'twitter:description', content: "A digital art show for chickens" },
           {
@@ -38,7 +38,7 @@ const Layout = ({ children }) => (
               "A digital art show for chickens"
           },
           ,
-          { property: 'og:url', content: 'https://www.digitalartshow.com' },
+          { property: 'og:url', content: 'https://artshow.imnotlovinit.com' },
           ,
           {
             property: 'og:image',
