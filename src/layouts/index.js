@@ -53,6 +53,7 @@ const Layout = ({ children }) => (
         <meta property="og:url" content="https://artshow.imnotlovinit.com" />
         <meta property="og:image" content="https://s3.amazonaws.com/the-humane-league-campaigns/mcdonalds/images/campaigns-mcdonalds-OG-share-image-artshow.jpg" />
         <meta property="og:description" content="Vote on your favorite piece of artwork. At the end of the contest, the top three submissions will be chosen as winners. You may cast a vote once a day." />
+        <meta property="og:updated_time" content="1537981457" />
         <meta property="twitter:card" content="photo" />
         <meta property="twitter:url" content="https://artshow.imnotlovinit.com" />
         <meta property="twitter:title" content="I'm Not Lovin' It Digital Art Show" />
