@@ -200,6 +200,9 @@ class App extends React.Component {
         case 4:
           renderImagePage = images.slice(15, 20);
           break;
+        case 5:
+          renderImagePage = images.slice(20, 24);
+          break;
         default:
           break;
       }
@@ -219,7 +222,7 @@ class App extends React.Component {
                   hideFirstLastPages
                   activePage={this.state.activePage}
                   onChange={this.handlePageChange}
-                  totalItemsCount={20}
+                  totalItemsCount={24}
                   itemsCountPerPage={5}
                   itemClass="page-item"
                   linkClass="page-link"
@@ -249,7 +252,7 @@ class App extends React.Component {
                   hideFirstLastPages
                   activePage={this.state.activePage}
                   onChange={this.handlePageChange}
-                  totalItemsCount={20}
+                  totalItemsCount={24}
                   itemsCountPerPage={5}
                   itemClass="page-item"
                   linkClass="page-link"
