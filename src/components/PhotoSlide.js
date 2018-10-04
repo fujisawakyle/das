@@ -28,7 +28,7 @@ const ModalPhoto = styled.div`
 
   ${media.xs`
     width: 80%;
-    height: calc(50vw);
+    height: calc(40vh);
     max-width: 800px;
     max-height: 400px;
   `}
