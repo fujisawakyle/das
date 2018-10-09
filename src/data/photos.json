@@ -1,56 +1,65 @@
 [
   {
-    "title": "The Title1",
-    "artist": "First1 Last1",
-    "location": "Location1, XX",
-    "url": "https://source.unsplash.com/random/800x400",
-    "votes": 1,
-    "votedFor": true,
+    "title": "How Ronald Treats Chickens",
+    "artist": "Jose Elias",
+    "location": "Philadelphia, PA",
+    "url": "/art/_STAFF_-Jose-Elias,-_How-Ronald-Treats-Chickens_-Philadelphia,-PA-lg.jpg",
     "id": 1
   },
   {
-    "title": "The Title2",
-    "artist": "First2 Last2",
-    "location": "Location2, XX",
-    "url": "https://source.unsplash.com/random/400x800",
-    "votes": 2,
-    "votedFor": false,
+    "title": "Steve Easterbrook",
+    "artist": "Rachel Black",
+    "location": "Douglassville, PA",
+    "url": "/art/_STAFF_-Rachel-Black-_Steve-Easterbrook_-Douglassville,-PA-lg.jpg",
     "id": 2
   },
   {
-    "title": "The Title3",
-    "artist": "First3 Last3",
-    "location": "Location3, XX",
-    "url": "https://source.unsplash.com/random/800x800",
-    "votes": 3,
-    "votedFor": false,
+    "title": "Untitled",
+    "artist": "Rebecca Enos",
+    "location": "UK",
+    "url": "/art/Rebecca-Enos,-UK.-My-instagram-page-is,-rebecca_enos_graphics-My-website-is-http__2F_2Fwww.renosdesign.com-lg.jpg",
     "id": 3
   },
   {
-    "title": "The Title4",
-    "artist": "First4 Last4",
-    "location": "Location4, XX",
-    "url": "https://source.unsplash.com/random/400x400",
-    "votes": 4,
-    "votedFor": false,
+    "title": "McGonalds",
+    "artist": "David Broadwood",
+    "location": "UK",
+    "url": "/art/David-Broadwood,-_McGonald_s_-UK-lg.jpg",
     "id": 4
   },
   {
-    "title": "The Title5",
-    "artist": "First5 Last5",
-    "location": "Location5, XX",
-    "url": "https://source.unsplash.com/random/500x800",
-    "votes": 5,
-    "votedFor": false,
+    "title": "Untitled",
+    "artist": "Alice Healy",
+    "location": "UK",
+    "url": "/art/Instagram_-@ak.tivism-Alice-Healy,-UK-lg.jpg",
     "id": 5
   },
   {
-    "title": "The Title6",
-    "artist": "First6 Last6",
-    "location": "Location6, XX",
-    "url": "https://source.unsplash.com/random/800x600",
-    "votes": 6,
-    "votedFor": false,
+    "title": "Pet People Promise",
+    "artist": "Mollie Kerr",
+    "location": "Surrey, UK",
+    "url": "/art/Mollie-Kerr,-_Pet-People-Promise’--Surrey,-UK-lg.jpg",
     "id": 6
+  },
+  {
+    "title": "Fuck Nuggets",
+    "artist": "Melinda Hegedus",
+    "location": "Amsterdam, Netherlands",
+    "url": "/art/Melinda-Hegedus,-Amsterdam,-Netherlands-_Fuck-Nuggets_-lg.jpg",
+    "id": 7
+  },
+  {
+    "title": "Sad Clown",
+    "artist": "Adam Peditto",
+    "location": "Phildelphia, PA",
+    "url": "/art/_STAFF_-Adam-Peditto,-_Sad-Clown_-Philadelphia,-PA-lg.jpg",
+    "id": 8
+  },
+  {
+    "title": "The Claw",
+    "artist": "Lucy Rickards",
+    "location": "UK",
+    "url": "/art/Lucy-Rickards,-_The-Claw_-UK-lg.jpg",
+    "id": 9
   }
 ]

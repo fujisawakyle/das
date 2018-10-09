@@ -80,12 +80,14 @@ export const H5 = styled.h5`
 export const P = styled.p`
   margin-bottom: ${props => props.marginBottom || fromThemeProps("copyMarginBottom")};
   margin-top: ${props => props.marginTop};
+  width: ${props => props.width};
 
   color: ${fromThemeProps("h5Color")};
   font-family: ${fromThemeProps("pFont")};
   font-size: ${props => props.fontSizeMobile || fromThemeProps("pFontSizeMobile")};
   font-weight: ${fromThemeProps("pWeight")};
   line-height: 1.7;
+  text-align: ${props => props.textAlign};
 
 
   ${media.sm`

@@ -15,6 +15,7 @@ export const Grid = styled.div`
   margin: 0 auto;
   margin-bottom: 0;
   max-width: 70em;
+  margin-top: ${props => props.marginTop};
   
   ${media.sm`
     margin-bottom: 3em;
@@ -34,11 +35,13 @@ export const GridPhotoContainer = styled.div`
   }
 
   ${media.sm`
-    padding-bottom: 0;
+    padding:0;
+    border-bottom: none;
+    width: 350.5px;
   `}
 `
 
-export const GridPhoto = styled.div`
+const GridPhoto = styled.div`
   position: relative;
   width: 95%;
   max-width: 332.5px;
@@ -71,15 +74,32 @@ const VotesContainer = styled.div`
   ${flex({ ai: 'center', jc: 'center' })};
 `
 
+let votesDisplay = null;
 
 class Photo extends Component {
   state = {
     hovering: false,
   }
   render() {
+    if (this.props.votes) {
+      votesDisplay = (
+        <div>
+          <br />
+          <Themed dark>
+            <VotesContainer>
+              <H2 style={{ marginBottom: 0 }}><span><SVG src={heartSVG} /></span><span style={{ fontSize: '1.25em' }}>{this.props.votes}</span></H2>
+            </VotesContainer>
+          </Themed>
+        </div>
+      )
+    } else {
+      votesDisplay = <div />
+    }
+
     return (
 
       <GridPhoto
+        className="Gridphoto"
         backgroundImage={this.props.backgroundImage}
         onClick={() => this.props.openModal()}
         onMouseEnter={() => this.setState({ hovering: true })}
@@ -111,12 +131,7 @@ class Photo extends Component {
                     }}
                   >
                     <FauxButton>View</FauxButton>
-                    <br />
-                    <Themed dark>
-                      <VotesContainer>
-                        <H2 style={{ marginBottom: 0 }}><span><SVG src={heartSVG} /></span><span style={{ fontSize: '1.25em' }}>{this.props.votes}</span></H2>
-                      </VotesContainer>
-                    </Themed>
+                    {votesDisplay}
                   </div>
                 )
             }

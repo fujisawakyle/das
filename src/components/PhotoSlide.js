@@ -121,66 +121,101 @@ export default class PhotoSlide extends Component {
 
     let photoMobileURL = photo.url.replace(new RegExp("(.*)" + 'lg'), "$1sm")
 
-    renderDetails = (
-      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-        <Media query="(max-width: 768px)">
-          {matches =>
-            matches ? (
-              <ModalPhoto backgroundImage={photoMobileURL} />
-            ) : (
-                <ModalPhoto backgroundImage={photo.url} />
-              )
-          }
-        </Media>
-        <PhotoDetails>
-          <PhotoDetailsContainer >
-            <H3 fontStyle="italic" fontSizeMobile="1em">{photo.title}</H3>
-            <H3 fontSizeMobile="1em">{photo.artist}</H3>
-            <H3 fontSizeMobile="1em">{photo.location}</H3>
-          </PhotoDetailsContainer>
-          <VoteButtonContainer>
+    if (!this.props.staff) {
 
-            <VoteButton
-              hasVoted={hasVoted}
-              onClick={() => {
-                if (!hasVoted) {
-                  this.props.voteFor(photo.id);
-                }
-              }}
-            >
-              {voteButtonText}
-            </VoteButton>
-            <P
-              fontSizeMobile="0.7em !important"
-              marginBottom="1em"
-              marginTop="1em"
-            >
-              {votedMessage}
-            </P>
-          </VoteButtonContainer>
-        </PhotoDetails>
-        <HR />
-        <StyledH2>
-          <span>
-            <SVG
-              src={heartSVG}
+      photo.votes === 1 ? voteText = 'VOTE' : voteText = 'VOTES';
+
+      if (hasVoted) {
+        voteButtonText = 'voted';
+        votedMessage = "You've already voted today!"
+      } else {
+        voteButtonText = 'record my vote';
+        votedMessage = '';
+      }
+
+      renderDetails = (
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+          <Media query="(max-width: 768px)">
+            {matches =>
+              matches ? (
+                <ModalPhoto backgroundImage={photoMobileURL} />
+              ) : (
+                  <ModalPhoto backgroundImage={photo.url} />
+                )
+            }
+          </Media>
+          <PhotoDetails>
+            <PhotoDetailsContainer >
+              <H3 fontStyle="italic" fontSizeMobile="1em">{photo.title}</H3>
+              <H3 fontSizeMobile="1em">{photo.artist}</H3>
+              <H3 fontSizeMobile="1em">{photo.location}</H3>
+            </PhotoDetailsContainer>
+            <VoteButtonContainer>
+
+              <VoteButton
+                hasVoted={hasVoted}
+                onClick={() => {
+                  if (!hasVoted) {
+                    this.props.voteFor(photo.id);
+                  }
+                }}
+              >
+                {voteButtonText}
+              </VoteButton>
+              <P
+                fontSizeMobile="0.7em !important"
+                marginBottom="1em"
+                marginTop="1em"
+              >
+                {votedMessage}
+              </P>
+            </VoteButtonContainer>
+          </PhotoDetails>
+          <HR />
+          <StyledH2>
+            <span>
+              <SVG
+                src={heartSVG}
+                style={{
+                  width: '50px',
+                  paddingRight: '5px'
+                }}
+              />
+            </span>
+            <span
               style={{
-                width: '50px',
-                paddingRight: '5px'
-              }}
-            />
-          </span>
-          <span
-            style={{
-              paddingBottom: '8px',
-              paddingRight: '8px'
-            }}>
-            {photo.votes}
-          </span>
-          {voteText}
-        </StyledH2 >
-      </div >
-    )
+                paddingBottom: '8px',
+                paddingRight: '8px'
+              }}>
+              {photo.votes}
+            </span>
+            {voteText}
+          </StyledH2 >
+        </div >
+      )
+    }
+    else {
+      renderDetails = (
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+          <Media query="(max-width: 768px)">
+            {matches =>
+              matches ? (
+                <ModalPhoto backgroundImage={photoMobileURL} />
+              ) : (
+                  <ModalPhoto backgroundImage={photo.url} />
+                )
+            }
+          </Media>
+          <PhotoDetails>
+            <PhotoDetailsContainer >
+              <H3 fontStyle="italic" fontSizeMobile="1em">{photo.title}</H3>
+              <H3 fontSizeMobile="1em">{photo.artist}</H3>
+              <H3 fontSizeMobile="1em">{photo.location}</H3>
+            </PhotoDetailsContainer>
+          </PhotoDetails>
+        </div >
+      )
+    }
     return (
       <div>
         {renderDetails}

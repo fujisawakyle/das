@@ -13,10 +13,12 @@ import Footer from '../components/Footer';
 import Sponsor from '../components/Sponsor';
 import Photo, { Grid, GridPhotoContainer } from '../styles/styledComponents/elements/GridPhoto';
 import photoData from '../data/photos.json';
-import { P, H2, Button } from '../styles/styledComponents/elements'
+import { P, H1, H2, Button } from '../styles/styledComponents/elements'
 import { StyledSection } from '../styles/styledComponents/blocks';
 import { AboutTHLMarkup, ContestRulesMarkup } from "../components/ModalMarkup";
 import ModalTrigger from '../components/ModalTrigger';
+import { fromThemeProps } from '../helpers/utilities';
+import staffPhotos from '../data/photos.json';
 
 const ModalStyles = {
   overlay: {
@@ -62,15 +64,18 @@ Modal.setAppElement(`#___gatsby`)
 
 
 let images,
+  staffImages,
   photoDetails,
   voteButtonText,
   votedMessage,
   renderImagePage,
+  renderStaffImages,
   cookieStatus;
 
 class App extends React.Component {
   state = {
-    modalIsOpen: false,
+    voteModalIsOpen: false,
+    nonVoteModalIsOpen: false,
     photoSelected: null,
     votedFor: null,
     hasVoted: false,
@@ -96,7 +101,22 @@ class App extends React.Component {
       votedMessage = "";
     }
 
-
+    staffImages = (
+      (staffPhotos).map((photo, i) => {
+        return (
+          <GridPhotoContainer key={i}>
+            <Photo
+              className="Photo"
+              backgroundImage={photo.url.replace(new RegExp("(.*)" + 'lg'), "$1sm")}
+              openModal={() => {
+                this.openModal(i, false, true);
+              }}
+            />
+          </GridPhotoContainer>
+        )
+      }
+      )
+    )
 
     if (this.state.photoDetails) {
       images = (
@@ -114,13 +134,13 @@ class App extends React.Component {
                         votedFor={this.state.votedFor}
                         votes={photo.votes}
                         backgroundImage={photoMobileURL}
-                        openModal={() => this.openModal(i)}
+                        openModal={() => this.openModal(i, true, false)}
                       />
                       <Button
                         hasVoted={this.state.hasVoted}
                         onClick={() => {
                           if (!this.state.hasVoted) {
-                            this.openModal(i)
+                            this.openModal(i, true, false)
                           }
                         }}
                       >
@@ -139,7 +159,7 @@ class App extends React.Component {
                         votedFor={this.state.votedFor}
                         votes={photo.votes}
                         backgroundImage={photo.url}
-                        openModal={() => this.openModal(i)}
+                        openModal={() => this.openModal(i, true, false)}
                       />
                     )
                 }
@@ -154,13 +174,13 @@ class App extends React.Component {
                     <Photo
                       votes={photo.votes}
                       backgroundImage={photoMobileURL}
-                      openModal={() => this.openModal(i)}
+                      openModal={() => this.openModal(i, true, false)}
                     />
                     <Button
                       hasVoted={this.state.hasVoted}
                       onClick={() => {
                         if (!this.state.hasVoted) {
-                          this.openModal(i)
+                          this.openModal(i, true, false)
                         }
                       }}
                     >
@@ -178,7 +198,7 @@ class App extends React.Component {
                     <Photo
                       votes={photo.votes}
                       backgroundImage={photo.url}
-                      openModal={() => this.openModal(i)}
+                      openModal={() => this.openModal(i, true, false)}
                     />
                   )
               }
@@ -210,6 +230,12 @@ class App extends React.Component {
     } else {
       images = <H2>Loading...</H2>
     }
+
+    renderStaffImages = (
+      <Grid className="Grid">
+        {staffImages}
+      </Grid>
+    )
     return (
       <div>
         <TitleBar />
@@ -263,7 +289,7 @@ class App extends React.Component {
             }
           </Media>
           <Modal
-            isOpen={this.state.modalIsOpen}
+            isOpen={this.state.voteModalIsOpen}
             onRequestClose={this.closeModal}
             style={ModalStyles}
           >
@@ -284,6 +310,30 @@ class App extends React.Component {
             triggerItem={<Button>Contest Rules</Button>}
             markupToDisplay={ContestRulesMarkup}
           />
+          <hr style={{
+            borderBottom: '2px solid black',
+            width: '100%',
+            marginBottom: '6em',
+            marginTop: '6em',
+            maxWidth: '65em'
+          }} />
+          <H1 marginBottom="1.5rem" color={fromThemeProps("altRed")}>
+            Non-contest submissions
+        </H1>
+          <P textAlign="center" width="90%">The following is a collection of international and staff entries that are not eligible for prizes under the official contest rules:</P>
+          {renderStaffImages}
+          <Modal
+            isOpen={this.state.nonVoteModalIsOpen}
+            onRequestClose={this.closeModal}
+            style={ModalStyles}
+          >
+            <OverlayExitButton onClick={this.closeModal}>X</OverlayExitButton>
+            <PhotoSlider
+              staff={true}
+              photoDetails={staffPhotos}
+              photoSelected={this.state.photoSelected}
+            />
+          </Modal>
         </StyledSection>
         <CampaignInfo />
         <Sponsor />
@@ -308,13 +358,13 @@ class App extends React.Component {
   }
 
   // Helpers //
-  openModal = (photoSelected) => {
-    this.setState({ modalIsOpen: true, photoSelected });
+  openModal = (photoSelected, voteModalIsOpen, nonVoteModalIsOpen) => {
+    this.setState({ voteModalIsOpen, nonVoteModalIsOpen, photoSelected });
     document.getElementById('___gatsby').classList.add('blur');
   }
 
   closeModal = () => {
-    this.setState({ modalIsOpen: false });
+    this.setState({ voteModalIsOpen: false, nonVoteModalIsOpen: false });
     document.getElementById('___gatsby').classList.remove('blur');
   }
 
