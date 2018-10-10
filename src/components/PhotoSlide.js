@@ -127,7 +127,7 @@ export default class PhotoSlide extends Component {
 
       if (hasVoted) {
         voteButtonText = 'voted';
-        votedMessage = "You've already voted today!"
+        votedMessage = "Voting is over!"
       } else {
         voteButtonText = 'record my vote';
         votedMessage = '';

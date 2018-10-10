@@ -65,12 +65,15 @@ Modal.setAppElement(`#___gatsby`)
 
 let images,
   staffImages,
-  photoDetails,
+  winnerImages,
+  winners,
   voteButtonText,
   votedMessage,
   renderImagePage,
   renderStaffImages,
-  cookieStatus;
+  renderWinnerImages,
+  cookieStatus,
+  winnersArray = [10, 23, 21];
 
 class App extends React.Component {
   state = {
@@ -78,9 +81,10 @@ class App extends React.Component {
     nonVoteModalIsOpen: false,
     photoSelected: null,
     votedFor: null,
-    hasVoted: false,
+    hasVoted: true,
     activePage: 1,
-    photoDetails: null
+    photoDetails: null,
+    winners: null
   };
 
   componentWillMount() {
@@ -99,6 +103,39 @@ class App extends React.Component {
     } else {
       voteButtonText = 'Vote';
       votedMessage = "";
+    }
+
+    if (this.state.winners) {
+
+      winnerImages = (
+        (this.state.winners).map((photo, i) => {
+          let place;
+          switch (i) {
+            case 0:
+              place = <H2>Grand prize</H2>
+              break;
+            case 1:
+              place = <H2>Second place</H2>
+              break;
+            case 2:
+              place = <H2>Third place</H2>
+              break;
+          }
+          return (
+            <GridPhotoContainer key={i}>
+              <Photo
+                className="Photo"
+                backgroundImage={photo.url.replace(new RegExp("(.*)" + 'lg'), "$1sm")}
+                openModal={() => {
+                  this.openModal(i, false, true);
+                }}
+              />
+              {place}
+            </GridPhotoContainer>
+          )
+        }
+        )
+      )
     }
 
     staffImages = (
@@ -122,16 +159,58 @@ class App extends React.Component {
       images = (
         (this.state.photoDetails).map((photo, i) => {
 
-          let photoMobileURL = photo.url.replace(new RegExp("(.*)" + 'lg'), "$1sm");
+          if (photo.id !== winnersArray[0] && photo.id !== winnersArray[1] && photo.id !== winnersArray[2]) {
 
-          if (photo.id === this.state.votedFor || parseInt(photo.id) === cookieStatus) {
+            let photoMobileURL = photo.url.replace(new RegExp("(.*)" + 'lg'), "$1sm");
+
+            if (photo.id === this.state.votedFor || parseInt(photo.id) === cookieStatus) {
+              return (
+                <Media query='(max-width: 768px)'>
+                  {matches =>
+                    matches ? (
+                      <GridPhotoContainer>
+                        <Photo
+                          votedFor={this.state.votedFor}
+                          votes={photo.votes}
+                          backgroundImage={photoMobileURL}
+                          openModal={() => this.openModal(i, true, false)}
+                        />
+                        <Button
+                          hasVoted={this.state.hasVoted}
+                          onClick={() => {
+                            if (!this.state.hasVoted) {
+                              this.openModal(i, true, false)
+                            }
+                          }}
+                        >
+                          {voteButtonText}
+                        </Button>
+                        <P
+                          fontSizeMobile="0.7em"
+                          marginBottom="0"
+                          marginTop="1em"
+                        >
+                          {votedMessage}
+                        </P>
+                      </GridPhotoContainer>
+                    ) : (
+                        <Photo
+                          votedFor={this.state.votedFor}
+                          votes={photo.votes}
+                          backgroundImage={photo.url}
+                          openModal={() => this.openModal(i, true, false)}
+                        />
+                      )
+                  }
+                </Media>
+              )
+            }
             return (
               <Media query='(max-width: 768px)'>
                 {matches =>
                   matches ? (
                     <GridPhotoContainer>
                       <Photo
-                        votedFor={this.state.votedFor}
                         votes={photo.votes}
                         backgroundImage={photoMobileURL}
                         openModal={() => this.openModal(i, true, false)}
@@ -156,7 +235,6 @@ class App extends React.Component {
                     </GridPhotoContainer>
                   ) : (
                       <Photo
-                        votedFor={this.state.votedFor}
                         votes={photo.votes}
                         backgroundImage={photo.url}
                         openModal={() => this.openModal(i, true, false)}
@@ -166,44 +244,6 @@ class App extends React.Component {
               </Media>
             )
           }
-          return (
-            <Media query='(max-width: 768px)'>
-              {matches =>
-                matches ? (
-                  <GridPhotoContainer>
-                    <Photo
-                      votes={photo.votes}
-                      backgroundImage={photoMobileURL}
-                      openModal={() => this.openModal(i, true, false)}
-                    />
-                    <Button
-                      hasVoted={this.state.hasVoted}
-                      onClick={() => {
-                        if (!this.state.hasVoted) {
-                          this.openModal(i, true, false)
-                        }
-                      }}
-                    >
-                      {voteButtonText}
-                    </Button>
-                    <P
-                      fontSizeMobile="0.7em"
-                      marginBottom="0"
-                      marginTop="1em"
-                    >
-                      {votedMessage}
-                    </P>
-                  </GridPhotoContainer>
-                ) : (
-                    <Photo
-                      votes={photo.votes}
-                      backgroundImage={photo.url}
-                      openModal={() => this.openModal(i, true, false)}
-                    />
-                  )
-              }
-            </Media>
-          )
         })
       )
 
@@ -231,16 +271,24 @@ class App extends React.Component {
       images = <H2>Loading...</H2>
     }
 
+    renderWinnerImages = (
+      <Grid className="Grid">
+        {winnerImages}
+      </Grid>
+    )
+
     renderStaffImages = (
       <Grid className="Grid">
         {staffImages}
       </Grid>
     )
+
     return (
       <div>
         <TitleBar />
         <IntroText />
         <StyledSection paddingBottom="5em" desktopWidth="90%" maxWidth="80em">
+          {renderWinnerImages}
           <Media query="(max-width: 768px)">
             {matches =>
               matches ? (
@@ -401,7 +449,7 @@ class App extends React.Component {
   loadPhotosFromAPI = () => {
     fetch('https://hq.thehumaneleague.org/votes', {}).
       then(response => response.json()).
-      then(json => this.setPhotos(_.shuffle(json)));
+      then(json => this.setPhotos(json));
   }
 
 
@@ -409,7 +457,10 @@ class App extends React.Component {
     this.setState({ activePage: pageNumber });
   }
 
-  setPhotos = photos => this.setState({ photoDetails: photos });
+  setPhotos = photos => {
+    winners = photos.filter(photo => winnersArray.includes(photo.id));
+    this.setState({ photoDetails: _.shuffle(photos), winners });
+  }
 }
 
 export default App;

@@ -21,7 +21,7 @@ const IntroText = () => {
         marginBottom: '3em'
       }} />
       <H1 marginBottom="1.5rem" color={fromThemeProps("altRed")}>
-        Cast Your Vote!
+        The votes are in!
         </H1>
       <P>
         Vote on your favorite piece of artwork. At the end of the contest, the top three submissions will be chosen as winners. You may cast a vote once a day.
