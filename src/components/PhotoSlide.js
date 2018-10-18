@@ -135,7 +135,6 @@ export default class PhotoSlide extends Component {
       }
 
       if (this.props.winners) {
-        console.log(this.state.photo.id)
         switch (this.props.photo.id) {
           case 10:
             renderPlace = (<H1

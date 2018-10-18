@@ -37,7 +37,9 @@ export const GridPhotoContainer = styled.div`
   ${media.sm`
     padding:0;
     border-bottom: none;
+    /* width: 350.5px; */
     width: 350.5px;
+    margin-right: 0.2em;
   `}
 `
 
@@ -53,7 +55,7 @@ const GridPhoto = styled.div`
 
   ${media.sm`
     margin-bottom: 1.5em;
-    margin-right: 1.5em;
+    margin-right: ${props => props.marginRight || '1.5em'};
     margin-top: 0;
   `}
 
@@ -99,6 +101,7 @@ class Photo extends Component {
     return (
 
       <GridPhoto
+        marginRight={this.props.marginRight}
         className="Gridphoto"
         backgroundImage={this.props.backgroundImage}
         onClick={() => this.props.openModal()}

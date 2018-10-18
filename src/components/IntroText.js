@@ -24,7 +24,7 @@ const IntroText = () => {
         The votes are in!
         </H1>
       <P>
-        Vote on your favorite piece of artwork. At the end of the contest, the top three submissions will be chosen as winners. You may cast a vote once a day.
+        You voted on your favorite pieces of artwork. The top three submissions have be chosen as winners:
         </P>
     </StyledSection>
 

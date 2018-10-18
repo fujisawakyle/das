@@ -72,8 +72,7 @@ let images,
   renderImagePage,
   renderStaffImages,
   renderWinnerImages,
-  cookieStatus,
-  winnersArray = [10, 21, 23];
+  cookieStatus;
 
 class App extends React.Component {
   state = {
@@ -85,7 +84,8 @@ class App extends React.Component {
     hasVoted: true,
     activePage: 1,
     photoDetails: null,
-    winners: null
+    winners: null,
+    winnersArray: null,
   };
 
   componentWillMount() {
@@ -125,6 +125,7 @@ class App extends React.Component {
           return (
             <GridPhotoContainer key={i}>
               <Photo
+                marginRight="0em"
                 votes={photo.votes}
                 className="Photo"
                 backgroundImage={photo.url.replace(new RegExp("(.*)" + 'lg'), "$1sm")}
@@ -146,6 +147,7 @@ class App extends React.Component {
           <GridPhotoContainer key={i}>
             <Photo
               className="Photo"
+              marginRight="0em"
               backgroundImage={photo.url.replace(new RegExp("(.*)" + 'lg'), "$1sm")}
               openModal={() => {
                 this.openModal(i, false, true, false);
@@ -161,7 +163,7 @@ class App extends React.Component {
       images = (
         (this.state.photoDetails).map((photo, i) => {
 
-          if (!winnersArray.includes(photo.id)) {
+          if (!this.state.winnersArray.includes(photo.id)) {
 
             let photoMobileURL = photo.url.replace(new RegExp("(.*)" + 'lg'), "$1sm");
 
@@ -299,6 +301,7 @@ class App extends React.Component {
             <OverlayExitButton onClick={this.closeModal}>X</OverlayExitButton>
             <PhotoSlider
               winners={true}
+              hasVoted={this.state.hasVoted}
               photoDetails={winners}
               photoSelected={this.state.photoSelected}
             />
@@ -472,12 +475,17 @@ class App extends React.Component {
   }
 
   setPhotos = photos => {
-    winners = photos.filter(photo => winnersArray.includes(photo.id));
-    winners = _.sortBy(winners, function (obj) {
-      return _.indexOf(winnersArray, obj.id);
+    //sort winners by votes and grab the top 3
+    let sortedVotes = _.sortBy(photos, function (obj) {
+      return (obj.votes);
     })
+    winners = sortedVotes.reverse().splice(0, 3);
+
+    let winnersArray = winners.map((obj) => obj.id)
+
+    //filter out other submissions for main grid (photoDetails)
     let others = photos.filter(photo => !winnersArray.includes(photo.id))
-    this.setState({ photoDetails: _.shuffle(others), winners });
+    this.setState({ photoDetails: _.shuffle(others), winners, winnersArray });
   }
 }
 
