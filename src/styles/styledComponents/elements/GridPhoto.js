@@ -18,7 +18,7 @@ export const Grid = styled.div`
   margin-top: ${props => props.marginTop};
   
   ${media.sm`
-    margin-bottom: 3em;
+    margin-bottom: ${props => props.marginBottom || '3em'} ;
   `}
 
 `;

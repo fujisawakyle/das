@@ -8,15 +8,16 @@ export const H1 = styled.h1`
 
   color: ${props => props.color || fromThemeProps("h1Color")};
   font-family: ${fromThemeProps("h1Font")};
-  font-size: ${fromThemeProps("h1FontSizeMobile")};
+  font-size: ${props => props.fontSizeMobile || fromThemeProps("h1FontSizeMobile")};
   font-weight: ${fromThemeProps("h1Weight")};
   text-align: center;
   text-transform: uppercase;
   max-width: ${props => props.maxWidth};
-  line-height: ${fromThemeProps("smallLineHeight")};
+  line-height: ${props => props.lineHeightMobile || fromThemeProps("smallLineHeight")};
 
   ${media.sm`
     text-align: ${props => props.desktopAlign};
+    margin-bottom: ${props => props.marginBottomDesktop}
   `}
 
   ${media.md`
@@ -30,13 +31,13 @@ export const H2 = styled.h2`
 
   color: ${props => props.color || fromThemeProps("h2Color")};
   font-family: ${fromThemeProps("h2Font")};
-  font-size: ${fromThemeProps("h2FontSizeMobile")};
+  font-size: ${props => props.fontSize || fromThemeProps("h2FontSizeMobile")};
   font-weight: ${fromThemeProps("h2Weight")};
   text-transform: ${props => props.textTransform};
   line-height: ${fromThemeProps("lineHeight")};
 
   ${media.sm`
-    font-size: ${fromThemeProps("h2FontSizeDesktop")};
+    font-size: ${props => props.fontSize || fromThemeProps("h2FontSizeDesktop")};
   `}
 `;
 

@@ -73,12 +73,13 @@ let images,
   renderStaffImages,
   renderWinnerImages,
   cookieStatus,
-  winnersArray = [10, 23, 21];
+  winnersArray = [10, 21, 23];
 
 class App extends React.Component {
   state = {
     voteModalIsOpen: false,
     nonVoteModalIsOpen: false,
+    winnersModalIsOpen: false,
     photoSelected: null,
     votedFor: null,
     hasVoted: true,
@@ -112,22 +113,23 @@ class App extends React.Component {
           let place;
           switch (i) {
             case 0:
-              place = <H2>Grand prize</H2>
+              place = <H2 fontSize="1.8rem" textTransform="uppercase" color={fromThemeProps("altRed")}>Grand prize</H2>
               break;
             case 1:
-              place = <H2>Second place</H2>
+              place = <H2 fontSize="1.8rem" textTransform="uppercase" color={fromThemeProps("altRed")}>Second place</H2>
               break;
             case 2:
-              place = <H2>Third place</H2>
+              place = <H2 fontSize="1.8rem" textTransform="uppercase" color={fromThemeProps("altRed")}>Third place</H2>
               break;
           }
           return (
             <GridPhotoContainer key={i}>
               <Photo
+                votes={photo.votes}
                 className="Photo"
                 backgroundImage={photo.url.replace(new RegExp("(.*)" + 'lg'), "$1sm")}
                 openModal={() => {
-                  this.openModal(i, false, true);
+                  this.openModal(i, false, false, true);
                 }}
               />
               {place}
@@ -146,7 +148,7 @@ class App extends React.Component {
               className="Photo"
               backgroundImage={photo.url.replace(new RegExp("(.*)" + 'lg'), "$1sm")}
               openModal={() => {
-                this.openModal(i, false, true);
+                this.openModal(i, false, true, false);
               }}
             />
           </GridPhotoContainer>
@@ -159,7 +161,7 @@ class App extends React.Component {
       images = (
         (this.state.photoDetails).map((photo, i) => {
 
-          if (photo.id !== winnersArray[0] && photo.id !== winnersArray[1] && photo.id !== winnersArray[2]) {
+          if (!winnersArray.includes(photo.id)) {
 
             let photoMobileURL = photo.url.replace(new RegExp("(.*)" + 'lg'), "$1sm");
 
@@ -173,13 +175,13 @@ class App extends React.Component {
                           votedFor={this.state.votedFor}
                           votes={photo.votes}
                           backgroundImage={photoMobileURL}
-                          openModal={() => this.openModal(i, true, false)}
+                          openModal={() => this.openModal(i, true, false, false)}
                         />
                         <Button
                           hasVoted={this.state.hasVoted}
                           onClick={() => {
                             if (!this.state.hasVoted) {
-                              this.openModal(i, true, false)
+                              this.openModal(i, true, false, false)
                             }
                           }}
                         >
@@ -198,7 +200,7 @@ class App extends React.Component {
                           votedFor={this.state.votedFor}
                           votes={photo.votes}
                           backgroundImage={photo.url}
-                          openModal={() => this.openModal(i, true, false)}
+                          openModal={() => this.openModal(i, true, false, false)}
                         />
                       )
                   }
@@ -213,13 +215,13 @@ class App extends React.Component {
                       <Photo
                         votes={photo.votes}
                         backgroundImage={photoMobileURL}
-                        openModal={() => this.openModal(i, true, false)}
+                        openModal={() => this.openModal(i, true, false, false)}
                       />
                       <Button
                         hasVoted={this.state.hasVoted}
                         onClick={() => {
                           if (!this.state.hasVoted) {
-                            this.openModal(i, true, false)
+                            this.openModal(i, true, false, false)
                           }
                         }}
                       >
@@ -237,7 +239,7 @@ class App extends React.Component {
                       <Photo
                         votes={photo.votes}
                         backgroundImage={photo.url}
-                        openModal={() => this.openModal(i, true, false)}
+                        openModal={() => this.openModal(i, true, false, false)}
                       />
                     )
                 }
@@ -272,7 +274,7 @@ class App extends React.Component {
     }
 
     renderWinnerImages = (
-      <Grid className="Grid">
+      <Grid marginBottom="0" className="Grid">
         {winnerImages}
       </Grid>
     )
@@ -289,6 +291,18 @@ class App extends React.Component {
         <IntroText />
         <StyledSection paddingBottom="5em" desktopWidth="90%" maxWidth="80em">
           {renderWinnerImages}
+          <Modal
+            isOpen={this.state.winnersModalIsOpen}
+            onRequestClose={this.closeModal}
+            style={ModalStyles}
+          >
+            <OverlayExitButton onClick={this.closeModal}>X</OverlayExitButton>
+            <PhotoSlider
+              winners={true}
+              photoDetails={winners}
+              photoSelected={this.state.photoSelected}
+            />
+          </Modal>
           <Media query="(max-width: 768px)">
             {matches =>
               matches ? (
@@ -406,13 +420,13 @@ class App extends React.Component {
   }
 
   // Helpers //
-  openModal = (photoSelected, voteModalIsOpen, nonVoteModalIsOpen) => {
-    this.setState({ voteModalIsOpen, nonVoteModalIsOpen, photoSelected });
+  openModal = (photoSelected, voteModalIsOpen, nonVoteModalIsOpen, winnersModalIsOpen) => {
+    this.setState({ photoSelected, voteModalIsOpen, nonVoteModalIsOpen, winnersModalIsOpen });
     document.getElementById('___gatsby').classList.add('blur');
   }
 
   closeModal = () => {
-    this.setState({ voteModalIsOpen: false, nonVoteModalIsOpen: false });
+    this.setState({ voteModalIsOpen: false, nonVoteModalIsOpen: false, winnersModalIsOpen: false });
     document.getElementById('___gatsby').classList.remove('blur');
   }
 
@@ -459,7 +473,11 @@ class App extends React.Component {
 
   setPhotos = photos => {
     winners = photos.filter(photo => winnersArray.includes(photo.id));
-    this.setState({ photoDetails: _.shuffle(photos), winners });
+    winners = _.sortBy(winners, function (obj) {
+      return _.indexOf(winnersArray, obj.id);
+    })
+    let others = photos.filter(photo => !winnersArray.includes(photo.id))
+    this.setState({ photoDetails: _.shuffle(others), winners });
   }
 }
 

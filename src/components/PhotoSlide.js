@@ -5,7 +5,7 @@ import Media from 'react-media';
 import { Button } from '../styles/styledComponents/elements';
 import styled, { css } from 'styled-components';
 import { flex } from '../helpers/mixins';
-import { H2, H3, P } from '../styles/styledComponents/elements';
+import { H1, H2, H3, P } from '../styles/styledComponents/elements';
 import heartSVG from '../assets/svg/heart.svg'
 import { fromThemeProps } from '../helpers/utilities';
 
@@ -94,10 +94,11 @@ const VoteButton = styled(Button)`
   `}
 `
 
-let renderDetails;
-let voteText;
-let voteButtonText;
-let votedMessage;
+let renderDetails,
+  voteText,
+  voteButtonText,
+  votedMessage,
+  renderPlace;
 
 export default class PhotoSlide extends Component {
   state = {
@@ -133,8 +134,50 @@ export default class PhotoSlide extends Component {
         votedMessage = '';
       }
 
+      if (this.props.winners) {
+        console.log(this.state.photo.id)
+        switch (this.props.photo.id) {
+          case 10:
+            renderPlace = (<H1
+              color={fromThemeProps('altRed')}
+              marginBottom="0.1em"
+              marginBottomDesktop="0.5em"
+              lineHeightMobile="1"
+              fontSizeMobile="2rem"
+            >
+              Grand Prize
+                          </H1>)
+            break;
+          case 21:
+            renderPlace = (<H1
+              color={fromThemeProps('altRed')}
+              marginBottom="0"
+              marginBottomDesktop="0.5em"
+              lineHeightMobile="1"
+              fontSizeMobile="2rem"
+            >
+              Second Prize
+                        </H1>)
+            break;
+          case 23:
+            renderPlace = (<H1
+              color={fromThemeProps('altRed')}
+              marginBottom="0"
+              marginBottomDesktop="0.5em"
+              lineHeightMobile="1"
+              fontSizeMobile="2rem"
+            >
+              Third Prize
+                        </H1>)
+            break;
+          default:
+            break;
+        }
+      }
+
       renderDetails = (
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+          {renderPlace}
           <Media query="(max-width: 768px)">
             {matches =>
               matches ? (
