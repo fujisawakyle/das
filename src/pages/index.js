@@ -301,6 +301,7 @@ class App extends React.Component {
             <OverlayExitButton onClick={this.closeModal}>X</OverlayExitButton>
             <PhotoSlider
               winners={true}
+              winnersArray={this.state.winnersArray}
               hasVoted={this.state.hasVoted}
               photoDetails={winners}
               photoSelected={this.state.photoSelected}

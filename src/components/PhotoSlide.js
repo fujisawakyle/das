@@ -136,7 +136,7 @@ export default class PhotoSlide extends Component {
 
       if (this.props.winners) {
         switch (this.props.photo.id) {
-          case 10:
+          case this.props.winnersArray[0]:
             renderPlace = (<H1
               color={fromThemeProps('altRed')}
               marginBottom="0.1em"
@@ -147,7 +147,7 @@ export default class PhotoSlide extends Component {
               Grand Prize
                           </H1>)
             break;
-          case 21:
+          case this.props.winnersArray[1]:
             renderPlace = (<H1
               color={fromThemeProps('altRed')}
               marginBottom="0"
@@ -158,7 +158,7 @@ export default class PhotoSlide extends Component {
               Second Prize
                         </H1>)
             break;
-          case 23:
+          case this.props.winnersArray[2]:
             renderPlace = (<H1
               color={fromThemeProps('altRed')}
               marginBottom="0"
@@ -170,6 +170,7 @@ export default class PhotoSlide extends Component {
                         </H1>)
             break;
           default:
+            renderPlace = <div />;
             break;
         }
       }
