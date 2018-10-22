@@ -174,6 +174,9 @@ export default class PhotoSlide extends Component {
             break;
         }
       }
+      else {
+        renderPlace = <div />;
+      }
 
       renderDetails = (
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
