@@ -113,8 +113,8 @@ export default class PhotoSlide extends Component {
     photo.votes === 1 ? voteText = 'VOTE' : voteText = 'VOTES';
 
     if (hasVoted) {
-      voteButtonText = 'voted';
-      votedMessage = "You've already voted today!"
+      voteButtonText = 'vote';
+      votedMessage = "Voting is over!"
     } else {
       voteButtonText = 'record my vote';
       votedMessage = '';
@@ -127,7 +127,7 @@ export default class PhotoSlide extends Component {
       photo.votes === 1 ? voteText = 'VOTE' : voteText = 'VOTES';
 
       if (hasVoted) {
-        voteButtonText = 'voted';
+        voteButtonText = 'vote';
         votedMessage = "Voting is over!"
       } else {
         voteButtonText = 'record my vote';

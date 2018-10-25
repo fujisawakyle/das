@@ -99,8 +99,8 @@ class App extends React.Component {
   render() {
 
     if (this.state.hasVoted) {
-      voteButtonText = 'Voted';
-      votedMessage = "You've already voted today!";
+      voteButtonText = 'Vote';
+      votedMessage = "Voting is over!";
     } else {
       voteButtonText = 'Vote';
       votedMessage = "";
